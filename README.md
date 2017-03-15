@@ -1,11 +1,13 @@
-# EpigenomicsTutorial-ISMB2017
+# Prediction of Regulatory Networks from Expression and Chromatin Data
+## ISMB 2017 Tutorial
 
-
+This is the accompanying website of the ISMB tutorial about epigenomics data analysis held in *Prague on the 21st of July*. It contains the schedule as well as information, and will be extended to contain all the data and software necessary for the tutorial.
 
 # Organizers / Presenters
-[Dr. Ivan G. Costa](http://costalab.org/team-2/ivan-g-costa-group-leader-2/), RWTH Aachen University, Germany
-[Dr. Marcel Schulz](https://bioinf.mpi-inf.mpg.de/homepage/index.php?&account=mschulz), Saarland University & Max Planck Institute for Informatics, Germany
-[Dr. Matthias Heinig](https://www.helmholtz-muenchen.de/icb/institute/staff/staff/ma/4158/Dr.-Heinig/index.html), Helmholtz Center Munich, Germany 
+
+* [Dr. Ivan G. Costa](http://costalab.org/team-2/ivan-g-costa-group-leader-2/), RWTH Aachen University, Germany
+* [Dr. Marcel Schulz](https://bioinf.mpi-inf.mpg.de/homepage/index.php?&account=mschulz), Saarland University & Max Planck Institute for Informatics, Germany
+* [Dr. Matthias Heinig](https://www.helmholtz-muenchen.de/icb/institute/staff/staff/ma/4158/Dr.-Heinig/index.html), Helmholtz Center Munich, Germany 
 
 
 # Motivation
@@ -41,6 +43,17 @@ a cell type of interest (Schmidt et al. 2016, Durek et al. 2016). After
 introductory presentation we will guide participants through a hands 
 on practical. Therefore, we require that all participants bring their 
 own laptop. Software that needs to be installed before the tutorial as 
-well as data used in the tutorial will be made available on the course 
-website (https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017),  
-where also more details are announced.
+well as data used in the tutorial will be made available on this website.
+
+# Schedule (21.7.2017)
+
+| Time  | Topic  |  Who |
+|---|---|---|
+|  2:30 - 2:45 | Introduction / gene regulation / transcription / chromatin  | Ivan G. Costa   |
+|  2:45 - 3:00 | Introduction ChIP-seq peak calling  | Matthias Heinig  |
+| 3:00 - 3:50  |  Practical peak calling |  Matthias Heinig |
+| 4:00 - 4:15  | Coffee break  |   |
+|  4:15 - 4:30 | Introduction Footprints  | Ivan G. Costa   |
+|  4:30 - 4:45 |  Introduction Regulatory networks | Marcel Schulz  |
+|  4:45 - 6:00 | Practical Regulatory Networks | Ivan G. Costa and Marcel Schulz |
+
