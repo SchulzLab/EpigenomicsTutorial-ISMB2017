@@ -1,6 +1,13 @@
 # EpigenomicsTutorial-ISMB2017
 
 
+
+# Organizers / Presenters
+[Dr. Ivan G. Costa](http://costalab.org/team-2/ivan-g-costa-group-leader-2/), RWTH Aachen University, Germany
+[Dr. Marcel Schulz](https://bioinf.mpi-inf.mpg.de/homepage/index.php?&account=mschulz), Saarland University & Max Planck Institute for Informatics, Germany
+[Dr. Matthias Heinig](https://www.helmholtz-muenchen.de/icb/institute/staff/staff/ma/4158/Dr.-Heinig/index.html), Helmholtz Center Munich, Germany 
+
+
 # Motivation
 One of the main molecular mechanisms controlling the temporal and spatial 
 expression of genes is transcriptional regulation. In this process, 
