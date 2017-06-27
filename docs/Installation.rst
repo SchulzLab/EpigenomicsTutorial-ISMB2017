@@ -9,7 +9,7 @@ You need to bring your own **laptop** with the following software installed (see
 * HINT-BC
 * TEPIC
 
-**Note:** that the individual softwares may have some other dependencies, e.g. bedtools which you should have.
+**Note:** that the individual softwares may have some other dependencies, e.g. bedtools which you should have installed.
 
 ============
 Installation

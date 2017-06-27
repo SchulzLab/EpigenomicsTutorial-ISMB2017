@@ -6,6 +6,10 @@
 Welcome to the Epigenomics tutorial documentation!
 =============================================
 
+If you are taking part in our tutorial at ISMB 2017, then you find the information here that you need.
+The documentation is split up into 4 parts. Make sure that you read and follow the **What you need**  and **Installation** guides before you appear in Prague.
+
+
 Contents:
 
 .. toctree::
