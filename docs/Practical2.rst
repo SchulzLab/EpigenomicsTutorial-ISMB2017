@@ -1,5 +1,6 @@
-## Practical II - Footprint calling & Transcription factor prediction
-
+==================================================================
+Practical II - Footprint calling & Transcription factor prediction
+==================================================================
 Explain how to call footprints
 
 Explain how to use TEPIC

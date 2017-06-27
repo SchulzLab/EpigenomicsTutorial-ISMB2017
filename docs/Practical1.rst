@@ -1,4 +1,6 @@
-## Practical I - Differential Histone peak calling
+===============================================
+Practical I - Differential Histone peak calling
+===============================================
 
 Explain the data we use 
 
