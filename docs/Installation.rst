@@ -1,13 +1,13 @@
-======
+============
 Installation
-=====
+============
 
 The following software packages need to be installed for running the tutorial:
 
 R version xxx or higher.
 
-`histoneHMM`__. 
-.. http://histonehmm.molgen.mpg.de
+histoneHMM_. 
+.. _histoneHMM: http://histonehmm.molgen.mpg.de
 
 The package was developed and tested using a linux system, so installation instructions are given for linux and unix like systems.
 
