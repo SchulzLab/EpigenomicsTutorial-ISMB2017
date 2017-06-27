@@ -81,7 +81,7 @@ You also need to download genome information for mouse genome mm10.
 `IGV <http://software.broadinstitute.org/software/igv/>`_
 -----------------------------------------------
 
-IGV installation instructions are found `here <http://software.broadinstitute.org/software/igv/download>`_. We advise you to download a binary distribution. 
+Instructions on installing IGV are available `here <http://software.broadinstitute.org/software/igv/download>`_. We advise you to download a binary distribution. 
 
 `TEPIC <https://github.com/SchulzLab/TEPIC>`_ 
 -----------------------------------------------
