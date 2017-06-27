@@ -8,7 +8,7 @@ You need to bring your own **laptop** with the following software installed (see
 * Python version 2.7
 * `histoneHMM <http://histonehmm.molgen.mpg.de>`_ 
 * `HINT <http://github.com/CostaLab/reg-gen>`_ 
-* TEPIC
+* `TEPIC <https://github.com/SchulzLab/TEPIC>`_ 
 * `IGV <http://software.broadinstitute.org/software/igv/>`_
 
 **Note:** that the individual softwares may have some other dependencies, e.g. bedtools which you should have installed.
@@ -47,6 +47,7 @@ The package was developed and tested using a linux system, so installation instr
   R CMD INSTALL histoneHMM_1.6.tar.gz
 
 `HINT <http://github.com/CostaLab/reg-gen>`_ 
+-----------------------------------------------
 
 To install HINT (RGT Suite), you are advised to use the Python package installer pip. First, download the pip installer `get-pip.py <http://bootstrap.pypa.io/get-pip.py>`_ and then install pip.
 
@@ -78,8 +79,71 @@ You also need to download genome information for mouse genome mm10.
 
 
 `IGV <http://software.broadinstitute.org/software/igv/>`_
+-----------------------------------------------
 
-IGV installation instrucitons are found `here <http://software.broadinstitute.org/software/igv/download>`_. We advise you to download binary distribution. 
+IGV installation instructions are found `here <http://software.broadinstitute.org/software/igv/download>`_. We advise you to download a binary distribution. 
 
+`TEPIC <https://github.com/SchulzLab/TEPIC>`_ 
+-----------------------------------------------
 
+**Dependencies**
 
+TEPIC requires:
+
+  * bedtools
+  * A C++ compiler supporting openmp, e.g. g++ (test with version 4.9.2)
+  
+To run the machine learning pipeline DYNAMITE, which is part of the TEPIC repository, we require the `R libraries:`
+
+  * glmnet
+  * doMC
+  * gplots
+  * ggplot2
+  
+To be able to execute all TEPIC examples during the tutorial, please download and extract the provided `mouse reference genome mm10 with Ensembl-style chromosome names <https://1drv.ms/u/s!AiE8bOpwXSBWgbNECd3ryGzNVDftUw>`_.
+
+**Installation**
+
+Start a terminal and clone the TEPIC repository ::
+
+  git clone https://github.com/SchulzLab/TEPIC.git
+  
+Next, go to the folder ::
+
+  TEPIC/Code
+  
+and type ::
+
+  bash compileTRAP.sh
+  
+to build the C++ component of TEPIC.
+
+If all dependencies mentioned above are available, no further installation steps are required. 
+
+**Testing**
+
+To test the core functionality of TEPIC, go to the folder::
+   
+   TEPIC/Code/ 
+   
+and run the example with the command:::
+
+  ./TEPIC.sh -g ../Test/example_sequence.fa -b ../Test/example_regions.bed -o TEPIC-Example -p ../PWMs/pwm_vertebrates_jaspar_uniprobe_original.PSEM -a ../Test/example_annotation.gtf -w 3000 -e FALSE
+
+There should be three result files generated:
+
+  * TEPIC-Example <date> Affinity.txt
+  * TEPIC-Example <date> amd.tsv
+  * TEPIC-Example <date> Peak_Features_Affinity_Gene_View_Filtered.txt
+  
+To test the logistic regression framework DYNAMITE, which will be used in the tutorial, go to the folder ::
+
+  /TEPIC/MachineLearningPipelines/DYNAMITE/
+  
+and run the provided example by entering the command ::
+
+  bash runDYNAMITE.sh ./DYNAMITE.cfg
+  
+This will generate all output files that are described in the `DYNAMITE documentation <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_. 
+
+For further information, please see the `TEPIC repository <https://github.com/SchulzLab/TEPIC>`_ . 
