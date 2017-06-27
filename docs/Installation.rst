@@ -4,7 +4,7 @@ What you need
 
 You need to bring your own **laptop** with the following software installed (see detailed instructions below)
 
-* R version xxx or higher
+* R version 3.2 or higher
 * Python version 2.7
 * `histoneHMM <http://histonehmm.molgen.mpg.de>`_ 
 * `HINT <http://github.com/CostaLab/reg-gen>`_ 
@@ -19,9 +19,20 @@ Installation
 
 The following software packages need to be installed for running the tutorial:
 
-R version xxx or higher.
+R version 3.2 or higher.
 
 `histoneHMM <http://histonehmm.molgen.mpg.de>`_ 
+
+You might need to install the following dependencies before installing histoneHMM.
+
+:strong:`Unix libraries:`
+  * lib-gcc
+
+:strong:`R libraries:`
+  * Rcpp
+  * GenomicRanges (bioconductor.org)
+  * Rsamtools (bioconductor.org)
+  * mvtnorm
 
 The package was developed and tested using a linux system, so installation instructions are given for linux and unix like systems.
 
