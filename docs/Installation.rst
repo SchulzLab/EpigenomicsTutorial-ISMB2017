@@ -66,7 +66,7 @@ and finally install HINT and RGT suite.
 
     pip install --user RGT
 
-Alternatively, look at detailed instructions `here <http://www.regulatory-genomics.org/hint/download-installation/>`_.
+Alternatively, look at detailed instructions `here <http://www.regulatory-genomics.org/hint/introduction/>`_.
 
 You also need to download genome information for mouse genome mm10.
 
