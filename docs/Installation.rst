@@ -36,7 +36,7 @@ The package was developed and tested using a linux system, so installation instr
 
 `HINT <http://github.com/CostaLab/reg-gen>`_ 
 
-To install HINT/RGT, you are advised to use the Python package installer pip. First, download the pip installer `get-pip.py <http://bootstrap.pypa.io/get-pip.py>`_ and then install pip.
+To install HINT (RGT Suite), you are advised to use the Python package installer pip. First, download the pip installer `get-pip.py <http://bootstrap.pypa.io/get-pip.py>`_ and then install pip.
 
 ::
 
