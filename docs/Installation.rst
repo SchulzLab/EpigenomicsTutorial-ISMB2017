@@ -9,7 +9,7 @@ You need to bring your own **laptop** with the following software installed (see
 * `histoneHMM <http://histonehmm.molgen.mpg.de>`_ 
 * `HINT <http://github.com/CostaLab/reg-gen>`_ 
 * TEPIC
-* IGV
+* `IGV <http://software.broadinstitute.org/software/igv/>`_
 
 **Note:** that the individual softwares may have some other dependencies, e.g. bedtools which you should have installed.
 
@@ -58,7 +58,9 @@ and finally install HINT and RGT suite.
 Alternatively, look at detailed instructions `here <http://www.regulatory-genomics.org/hint/download-installation/>`_.
 
 
+`IGV <http://software.broadinstitute.org/software/igv/>`_
 
+IGV installation instrucitons are found `here <http://software.broadinstitute.org/software/igv/download>`_. We advise you to download binary distribution. 
 
 
 
