@@ -7,7 +7,7 @@ You need to bring your own **laptop** with the following software installed (see
 * R version xxx or higher
 * Python version 2.7
 * `histoneHMM <http://histonehmm.molgen.mpg.de>`_ 
-* `HINT </http://github.com/CostaLab/reg-gen>`_ 
+* `HINT <http://github.com/CostaLab/reg-gen>`_ 
 * TEPIC
 * IGV
 
@@ -34,7 +34,9 @@ The package was developed and tested using a linux system, so installation instr
 
   R CMD INSTALL histoneHMM_1.6.tar.gz
 
-To install HINT/RGT, you are advised to use the Python package installer pip. First, download the pip installer `get-pip.py <https://bootstrap.pypa.io/get-pip.py>`
+`HINT <http://github.com/CostaLab/reg-gen>`_ 
+
+To install HINT/RGT, you are advised to use the Python package installer pip. First, download the pip installer `get-pip.py <http://bootstrap.pypa.io/get-pip.py>`_ and then install pip.
 
 ::
 
@@ -47,13 +49,15 @@ Next, install dependencies:
     pip install --user cython numpy scipy
 
 
-and then HINT/RGT. 
+and finally install HINT and RGT suite.
 
 ::
 
     pip install RGT
 
-This will install the HINT and RGT suite with all dependencies. Alternatively, look at detailed instructions `here <http://www.regulatory-genomics.org/hint/download-installation/>`.
+Alternatively, look at detailed instructions `here <http://www.regulatory-genomics.org/hint/download-installation/>`_.
+
+
 
 
 
