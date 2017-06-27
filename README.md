@@ -17,6 +17,9 @@ One of the main molecular mechanisms controlling the temporal and spatial expres
 
 This tutorial is targeted to an audience of bioinformaticians with previous experience in gene expression and next generation sequencing analysis. This Intermediary level tutorial will provide you knowledge on the use of state-of-art tools for inference of gene regulatory networks from chromatin and expression data. First, we will review tools to conduct the following analyses: 1) predict regulatory regions from different epigenetic datasets, e.g., using differential peak callers (histoneHMM - Heinig et al., 2015) or footprint methods (HINT - Gusmao et al., 2014) and 2) show how to determine cell-specific TF binding in these regions (e.g. TEPIC - Schmidt et al. 2016) and 3) build regulatory networks to study a cell type of interest (e.g. Schmidt et al. 2016, Durek et al. 2016). After introductory presentation we will guide participants through a hands on practical. Therefore, we require that all participants bring their own laptop. Software that needs to be installed before the tutorial as well as data used in the tutorial will be made available on this website.
 
+# Documentation
+We have created a ReadTheDocs documentation for the participants to setup the software for the tutorial and for publishing the final working examples, accessible [here](http://epigenomicstutorial-ismb2017.readthedocs.io/en/latest/index.html).
+
 # Schedule (21.7.2017)
 
 | Time  | Topic  |  Who |
