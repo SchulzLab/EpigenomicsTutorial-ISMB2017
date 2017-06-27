@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Wlcome to the Epigenomics tutorial documentation!
+Welcome to the Epigenomics tutorial documentation!
 =============================================
 
 Contents:
