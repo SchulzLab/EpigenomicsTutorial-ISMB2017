@@ -53,7 +53,7 @@ and finally install HINT and RGT suite.
 
 ::
 
-    pip install RGT
+    pip install --user RGT
 
 Alternatively, look at detailed instructions `here <http://www.regulatory-genomics.org/hint/download-installation/>`_.
 
