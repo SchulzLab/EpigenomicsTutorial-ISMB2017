@@ -22,6 +22,7 @@ The following software packages need to be installed for running the tutorial:
 R version 3.2 or higher.
 
 `histoneHMM <http://histonehmm.molgen.mpg.de>`_ 
+-----------------------------------------------
 
 You might need to install the following dependencies before installing histoneHMM.
 
