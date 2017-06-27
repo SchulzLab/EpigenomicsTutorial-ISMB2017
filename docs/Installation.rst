@@ -57,6 +57,13 @@ and finally install HINT and RGT suite.
 
 Alternatively, look at detailed instructions `here <http://www.regulatory-genomics.org/hint/download-installation/>`_.
 
+You also need to download genome information for mouse genome mm10.
+
+::
+
+    cd ~/rgtdata
+    python setupGenomicData.py --mm10
+
 
 `IGV <http://software.broadinstitute.org/software/igv/>`_
 
