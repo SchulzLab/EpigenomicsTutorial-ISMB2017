@@ -2,6 +2,6 @@
 Practical I - Differential Histone peak calling
 ===============================================
 
-Explain the data we use 
+more details soon ...
 
-Explain the workflow ...
+
