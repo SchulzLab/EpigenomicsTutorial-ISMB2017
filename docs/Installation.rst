@@ -100,7 +100,7 @@ To run the machine learning pipeline DYNAMITE, which is part of the TEPIC reposi
   * gplots
   * ggplot2
   
-The TEPIC examples in the tutorial also require the mouse reference genome that was previously downloaded in the HINT setup. 
+The TEPIC examples in the tutorial also require the mouse reference genome that was downloaded during the HINT setup. 
 
 **Installation**
 
