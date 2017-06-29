@@ -100,7 +100,7 @@ To run the machine learning pipeline DYNAMITE, which is part of the TEPIC reposi
   * gplots
   * ggplot2
   
-To be able to execute all TEPIC examples during the tutorial, please download and extract the provided `mouse reference genome mm10 with Ensembl-style chromosome names <https://1drv.ms/u/s!AiE8bOpwXSBWgbNECd3ryGzNVDftUw>`_.
+The TEPIC examples in the tutorial also require the mouse reference genome that was previously downloaded in the HINT setup. 
 
 **Installation**
 
