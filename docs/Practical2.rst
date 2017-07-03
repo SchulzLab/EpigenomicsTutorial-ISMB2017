@@ -16,6 +16,6 @@ After installation of HINT, please go to EpigenomicsTutorial-ISMB2017 folder and
 using histone data
 ::
     rgt-hint --histone-footprints --organism=mm10 --output-location=./output/session2 --output-prefix=B_H3K27Ac_chr1_footprints ./input/session2/B_H3K27Ac_chr1.bam ./input/session2/B_H3K27AcPeaks_chr1.bed
-rgt-hint --histone-footprints --organism=mm10 --output-location=./output/session2 --output-prefix=CD4_H3K27Ac_chr1_footprints ./input/session2/CD4_H3K27Ac_chr1.bam ./input/session2/CD4_H3K27AcPeaks_chr1.bed
-rgt-hint --histone-footprints --organism=mm10 --output-location=./output/session2 --output-prefix=LSK_H3K27Ac_chr1_footprints ./input/session2/LSK_H3K27Ac_chr1.bam ./input/session2/LSK_H3K27AcPeaks_chr1.bed
+    rgt-hint --histone-footprints --organism=mm10 --output-location=./output/session2 --output-prefix=CD4_H3K27Ac_chr1_footprints ./input/session2/CD4_H3K27Ac_chr1.bam ./input/session2/CD4_H3K27AcPeaks_chr1.bed
+    rgt-hint --histone-footprints --organism=mm10 --output-location=./output/session2 --output-prefix=LSK_H3K27Ac_chr1_footprints ./input/session2/LSK_H3K27Ac_chr1.bam ./input/session2/LSK_H3K27AcPeaks_chr1.bed
 
