@@ -28,8 +28,8 @@ We have created a ReadTheDocs documentation for the participants to setup the so
 |  2:45 - 3:00 | Introduction ChIP-seq peak calling  | Matthias Heinig  |
 | 3:00 - 3:50  |  Practical peak calling |  Matthias Heinig |
 | 4:00 - 4:15  | Coffee break  |   |
-|  4:15 - 4:30 | Introduction Footprints  | Ivan G. Costa   |
-|  4:30 - 4:45 |  Introduction Regulatory networks | Marcel Schulz  |
-|  4:45 - 5:50 | Practical Regulatory Networks | Ivan G. Costa and Marcel Schulz |
+|  4:15 - 4:30 | Introduction footprints  | Ivan G. Costa   |
+|  4:30 - 4:45 |  Introduction regulatory networks | Marcel Schulz  |
+|  4:45 - 5:50 | Practical regulatory networks | Ivan G. Costa and Marcel Schulz |
 |  5:50 - 6:00 | Q & A session | all |
 
