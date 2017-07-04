@@ -24,7 +24,8 @@ Step2: Intersecting footprints with differential histone peaks
 
 To derive candidate regions for TF binding, we combine (1) genome wide footprint calls and (2) genome wide differential histone peak calls using
 the active chromatin marks H3K4me3 and H3K27ac. In addition to default unix functions we  use *bedtools* to combine the respective bed files. 
-All input files are available in the folder ``/EpigenomicsTutorial-ISMB2017/session2/Step2/Input``.
+
+All input files are available in the folder ``/EpigenomicsTutorial-ISMB2017/session2/Step2/input``.
 
 1. Generate an output folder for the resulting bed files and enter the folder:
 ::
@@ -49,7 +50,7 @@ All input files are available in the folder ``/EpigenomicsTutorial-ISMB2017/sess
 The *cat* command aggregates the input files for H3K27ac and H3K4me3 and pipes them (using the *|* operator) to a sort function which sorts by chromosome (k1,1) and first genomic corrdinate (k2,2n). 
 The result is stored in a specified output bed file (using the *>* operator).
 
-3. Merge overlapping histone peaks using *bedtools merge* and intersect those regions with HINT-BCs footprint calls using *bedtools intersect*:
+3. Merge overlapping histone peaks using *bedtools merge* and intersect the merged regions with HINT-BCs footprint calls using *bedtools intersect*:
 ::
 	
 	bedtools merge -i B_vs_CD4_H3K27ac_H3K4me3_B_sorted.bed | bedtools intersect -a stdin -b ../../../session2/step2/input/Footprints/B.bed > Footprints_B_vs_CD4_H3K27ac_H3K4me3_B.bed
