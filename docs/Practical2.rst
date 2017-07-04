@@ -23,16 +23,19 @@ All input files are found in the folder ``/EpigenomicsTutorial-ISMB2017/session2
 
 **3.** Execute the following commands to call footprints using ATAC-seq data:
 ::
-    rgt-hint --atac-footprints --organism=mm10 --output-location=./output/session2/step1 --output-prefix=B ./session2/step1/input/B_ATAC_chr1.bam ./session2/step1/input/B_ATACPeaks_chr1.bed
-    rgt-hint --atac-footprints --organism=mm10 --output-location=./output/session2/step1 --output-prefix=CD4 ./session2/step1/input/CD4_ATAC_chr1.bam ./session2/step1/input/CD4_ATACPeaks_chr1.bed
-    rgt-hint --atac-footprints --organism=mm10 --output-location=./output/session2/step1 --output-prefix=LSK ./session2/step1/input/LSK_ATAC_chr1.bam ./session2/step1/input/LSK_ATACPeaks_chr1.bed
+    rgt-hint --atac-footprints --organism=mm10 --output-location=./ --output-prefix=B_ATAC_chr1_footprints ../../../session2/step1/input/B_ATAC_chr1.bam ../../../session2/step1/input/B_ATACPeaks_chr1.bed
+    rgt-hint --atac-footprints --organism=mm10 --output-location=./ --output-prefix=CD4_ATAC_chr1_footprints ../../../session2/step1/input/CD4_ATAC_chr1.bam ../../../session2/step1/input/CD4_ATACPeaks_chr1.bed
+    rgt-hint --atac-footprints --organism=mm10 --output-location=./ --output-prefix=LSK_ATAC_chr1_footprints ../../../session2/step1/input/LSK_ATAC_chr1.bam ../../../session2/step1/input/LSK_ATACPeaks_chr1.bed
 
 To call footprints with histone data execute the commands:
 ::
-    rgt-hint --histone-footprints --organism=mm10 --output-location=./output/session2/step1 --output-prefix=B_H3K27Ac_chr1_footprints ./session2/step1/input/B_H3K27Ac_chr1.bam ./session2/step1/input/B_H3K27AcPeaks_chr1.bed
-    rgt-hint --histone-footprints --organism=mm10 --output-location=./output/session2/step1 --output-prefix=CD4_H3K27Ac_chr1_footprints ./session2/step1/input/CD4_H3K27Ac_chr1.bam ./session2/step1/input/CD4_H3K27AcPeaks_chr1.bed
-    rgt-hint --histone-footprints --organism=mm10 --output-location=./output/session2/step1 --output-prefix=LSK_H3K27Ac_chr1_footprints ./session2/step1/input/LSK_H3K27Ac_chr1.bam ./session2/step1/input/LSK_H3K27AcPeaks_chr1.bed
+    rgt-hint --histone-footprints --organism=mm10 --output-location=./ --output-prefix=B_H3K27Ac_chr1_footprints ../../../session2/step1/input/B_H3K27Ac_chr1.bam ../../../session2/step1/input/B_H3K27AcPeaks_chr1.bed
+    rgt-hint --histone-footprints --organism=mm10 --output-location=./ --output-prefix=CD4_H3K27Ac_chr1_footprints ../../../session2/step1/input/CD4_H3K27Ac_chr1.bam ../../../session2/step1/input/CD4_H3K27AcPeaks_chr1.bed
+    rgt-hint --histone-footprints --organism=mm10 --output-location=./ --output-prefix=LSK_H3K27Ac_chr1_footprints ../../../session2/step1/input/LSK_H3K27Ac_chr1.bam ../../../session2/step1/input/LSK_H3K27AcPeaks_chr1.bed
 
+The above commands will output a BED file containing the footprints, inside the current folder with test as the prefix. Each footprint, i.e. each line of the BED file, will also contain information regarding the tag-count score of each footprint. This score can be used as a footprint quality assessment (the higher the value, the better). In addition, a file including the details of reads and footprints will also be written in the same folder of BED file.
+
+**4.** Execute the following commands to do motif matching:
 
 Step2: Intersecting footprints with differential histone peaks
 -----------------------------------------------
