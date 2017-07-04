@@ -29,7 +29,7 @@ Step2: Intersecting footprints with differential histone peaks
 To derive candidate regions for TF binding, we combine (1) genome wide footprint calls and (2) genome wide differential histone peak calls using
 the active chromatin marks H3K4me3 and H3K27ac. In addition to default unix functions we  use *bedtools* to combine the respective bed files. 
 
-All input files are available in the folder ``/EpigenomicsTutorial-ISMB2017/session2/Step2/input``.
+All input files are available in the folder ``/EpigenomicsTutorial-ISMB2017/session2/step2/input``.
 
 **1.** Assure that you are in the directory ``EpigenomicsTutorial-ISMB2017/output/session2``, otherwise *cd* to that directory.
 
