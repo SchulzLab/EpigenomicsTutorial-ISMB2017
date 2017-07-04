@@ -1,0 +1,5 @@
+Name	Mean	Variance	Measure
+Integrated_Data_For_Classification	0.965909090909091	0.00015495867768595	Test
+Integrated_Data_For_Classification	0.976851851851852	2.98353909465018e-05	Training
+Integrated_Data_For_Classification	0.967149758454106	0.000135545753693201	F1_1
+Integrated_Data_For_Classification	0.964562569213732	0.000178070146392792	F1_2

@@ -1,0 +1,35 @@
+[Description]
+process	TEPICv2
+run_by_user	fschmidt
+date	07_04_17
+time	17_03_46
+analysis_id	/local/home/fschmidt/Documents/Research/EpigenomicsTutorial-ISMB2017/output/session2/step3/LSK-vs-CD4/Affinities/group1/Footprints_LSK_vs_CD4_H3K27ac_H3K4me3_LSK.bed_TEPIC_07_04_17_17_03_46
+
+[Inputs]
+region_file	/local/home/fschmidt/Documents/Research/EpigenomicsTutorial-ISMB2017/session2/step3/input/Footprints_LSK_vs_CD4_H3K27ac_H3K4me3_LSK.bed
+gene_filter_file /local/home/fschmidt/Documents/Research/EpigenomicsTutorial-ISMB2017/session2/step3/input/gencode.VM2.protein_coding_only.gtf
+original_scaling	FALSE
+
+[References]
+genome_reference	/home/fschmidt/rgtdata/mm10/genome_mm10.fa
+pwms	/local/home/fschmidt/Documents/Research/EpigenomicsTutorial-ISMB2017/session2/step3/input/Workshop_Matrices.PSEM
+genome_annotation	/local/home/fschmidt/Documents/Research/EpigenomicsTutorial-ISMB2017/session2/step3/input/gencode.VM2.protein_coding_only.gtf
+
+[Outputs]
+affinity_file_peak_view	/local/home/fschmidt/Documents/Research/EpigenomicsTutorial-ISMB2017/output/session2/step3/LSK-vs-CD4/Affinities/group1/Footprints_LSK_vs_CD4_H3K27ac_H3K4me3_LSK.bed_TEPIC_07_04_17_17_03_46_Affinity.txt
+affinity_file_gene_view_filtered	/local/home/fschmidt/Documents/Research/EpigenomicsTutorial-ISMB2017/output/session2/step3/LSK-vs-CD4/Affinities/group1/Footprints_LSK_vs_CD4_H3K27ac_H3K4me3_LSK.bed_TEPIC_07_04_17_17_03_46_Affinity_Gene_View_Filtered.txt
+
+[Parameters]
+SampleID:	/local/home/fschmidt/Documents/Research/EpigenomicsTutorial-ISMB2017/output/session2/step3/LSK-vs-CD4/Affinities/group1/Footprints_LSK_vs_CD4_H3K27ac_H3K4me3_LSK.bed
+cores:	4
+Chr prefix: TRUE
+window	30000
+decay	TRUE
+sparsity	FALSE
+genebody	FALSE
+length normalisation	TRUE
+peak features	TRUE
+
+[Metrics]
+Number of analysed regions	2977
+Number of considered pwms	93
