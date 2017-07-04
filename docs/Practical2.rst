@@ -10,7 +10,18 @@ of inferring TFs might be related to gene expression differences between the tis
 Step1: Footprint calling
 -----------------------------------------------
 
-After installation of HINT, go to the ``EpigenomicsTutorial-ISMB2017`` folder and execute the following commands to call footprints using ATAC-seq data:
+To perform footprinting, we need (1) a bam file containing the sequence data and (2) a bed file including the interesting regions, such as DNase I hypersensitive sites (DHSs) for DNase-seq and peaks for ATAC-seq. 
+
+All input files are found in the folder ``/EpigenomicsTutorial-ISMB2017/session2/step1/input``
+
+**1.** Assure that you are in the directory ``EpigenomicsTutorial-ISMB2017/output/session2``, otherwise *cd* to that directory.
+
+**2.** Generate an output folder for the resulting files and **enter the folder**:
+::
+    mkdir step1
+    cd step1
+
+**3.** Execute the following commands to call footprints using ATAC-seq data:
 ::
     rgt-hint --atac-footprints --organism=mm10 --output-location=./output/session2/step1 --output-prefix=B ./session2/step1/input/B_ATAC_chr1.bam ./session2/step1/input/B_ATACPeaks_chr1.bed
     rgt-hint --atac-footprints --organism=mm10 --output-location=./output/session2/step1 --output-prefix=CD4 ./session2/step1/input/CD4_ATAC_chr1.bam ./session2/step1/input/CD4_ATACPeaks_chr1.bed
