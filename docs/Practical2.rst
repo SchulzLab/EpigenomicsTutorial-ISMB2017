@@ -20,7 +20,7 @@ To call footprints with histone data execute the commands:
 
 
 Step2: Intersecting footprints with differential histone peaks
---------------------------------------------------------------
+-----------------------------------------------
 
 To derive candidate regions for TF binding, we combine (1) genome wide footprint calls and (2) genome wide differential histone peak calls using
 the active chromatin marks H3K4me3 and H3K27ac. In addition to default unix functions we  use *bedtools* to combine the respective bed files. 
@@ -67,5 +67,4 @@ is result of the Footprint calling. The resulting files will contain only footpr
 
 Step3: Deriving candidate transcriptional regulators 
 ----------------------------------------------------
-
 

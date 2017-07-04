@@ -17,6 +17,10 @@ Contents:
    
    Installation.rst
    Practical1.rst
+
+.. toctree::
+	:maxdepth:2
+
    Practical2.rst
 
 
