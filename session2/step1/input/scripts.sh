@@ -2,6 +2,7 @@
 
 ##################################################################################################################
 # In this script, we will show you how to perform the low level analysis, such as read alignment and peak calling.
+# SRR1533847 is a ATAC-seq data for B cell under GEO accession GSE59992
 # We assume that all tools have been installed and all necessary data, like referenec genome, have been downloaded. 
 ##################################################################################################################
 
