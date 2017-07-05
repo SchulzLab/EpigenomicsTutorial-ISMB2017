@@ -35,16 +35,16 @@ You might need to install the following dependencies before installing histoneHM
   * Rsamtools (bioconductor.org)
   * mvtnorm
 
-The package was developed and tested using a linux system, so installation instructions are given for linux and unix like systems.
+The package was developed and tested using a linux system and R. 
+To install the latest version of the package, open an R terminal and type in the following commands (using the 'devtools' package):
 
-**Start a terminal and download as follows**::
+**In the R terminal type the following**::
 
-  wget http://histonehmm.molgen.mpg.de/histoneHMM_1.6.tar.gz
+  install.packages("devtools") # if devtools is not yet installed
+  devtools::install_github("matthiasheinig/histoneHMM")
 
+Now the latest version of histoneHMM should be installed on your system.
 
-**Install using**::
-
-  R CMD INSTALL histoneHMM_1.6.tar.gz
 
 `HINT <http://github.com/CostaLab/reg-gen>`_ 
 -----------------------------------------------
