@@ -1,45 +1,69 @@
 ==================================================================
 Practical II - Footprint calling & Transcription factor prediction
 ==================================================================
-In the second practical, we will first identify TF-footprints using the software `HINT <http://github.com/CostaLab/reg-gen>`_ and
-combine those with differential histone peaks called using `histoneHMM <http://histonehmm.molgen.mpg.de>`_ (c.f. practical 1).
-Thereby, we will identify tissue specific sets of differential candidate binding regions for TF binding. These are used in a 
-`DYNAMITE documentation <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_ analysis with the aim
+In the second practical, we will perform a footprint analysis with `HINT <http://www.regulatory-genomics.org/hint/>`_ to identify cell specific binding sites from open chromatin data (ATAC-seq). Next, we 
+will combine the footprints with the differential histone peaks detected by `histoneHMM <http://histonehmm.molgen.mpg.de>`_ (c.f. practical 1). 
+Thereby, we will find tissue specific TF binding sites, which are located in regions with cell spefici histone peaks. These regulatory regions are used in a 
+`DYNAMITE <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_ analysis with the aim
 of inferring TFs might be related to gene expression differences between the tissues of interest. 
 
 Step1: Footprint calling
 -----------------------------------------------
 
-To perform footprinting, we need (1) a bam file containing the sequence data and (2) a bed file including the interesting regions, such as DNase I hypersensitive sites (DHSs) for DNase-seq and peaks for ATAC-seq. 
+First, we will use `HINT <http://www.regulatory-genomics.org/hint/>`_ to find genomic regions (footprints) with cell active TF binding sites. For this, HINT requires (1) a sorted bam file containing the aligned reads from the sequencing library (DNase-,ATAC- or histone ChIP-seq) (2) and a bed file including peaks detected in the same sequencing library provided in (1). These peak regions are used by HINT to reduce the search space and can be geneated by any  peak caller. 
 
-All input files are found in the folder ``/EpigenomicsTutorial-ISMB2017/session2/step1/input``
+Here, we will analyse ATAC-seq data from LSK cells (equivalent to MPP cells), B cells and T CD4 cells obtained from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_. We have perfromed low level analysis steps including read alignment and peaks calling in chromossome 1, which can be found in this folder ``/EpigenomicsTutorial-ISMB2017/session2/step1/input``. Check here for an script describing how these were generated ``XXX - to do''.
 
-**1.** Assure that you are in the directory ``EpigenomicsTutorial-ISMB2017/output/session2``, otherwise *cd* to that directory.
-
-**2.** Generate an output folder for the resulting files and **enter the folder**:
+**1.** First, go to the EpigenomicsTutorial-ISMB2017 directory and generate an output folder for the result files:
 ::
-    mkdir step1
-    cd step1
-
-**3.** Execute the following commands to call footprints using ATAC-seq data:
+    cd EpigenomicsTutorial-ISMB2017
+    mkdir session2/step2/output
+   
+**2.** Execute the following commands to call footprints using ATAC-seq data:
 ::
-    rgt-hint --atac-footprints --organism=mm10 --output-location=./ --output-prefix=B_ATAC_chr1_footprints ../../../session2/step1/input/B_ATAC_chr1.bam ../../../session2/step1/input/B_ATACPeaks_chr1.bed
-    rgt-hint --atac-footprints --organism=mm10 --output-location=./ --output-prefix=CD4_ATAC_chr1_footprints ../../../session2/step1/input/CD4_ATAC_chr1.bam ../../../session2/step1/input/CD4_ATACPeaks_chr1.bed
-    rgt-hint --atac-footprints --organism=mm10 --output-location=./ --output-prefix=LSK_ATAC_chr1_footprints ../../../session2/step1/input/LSK_ATAC_chr1.bam ../../../session2/step1/input/LSK_ATACPeaks_chr1.bed
+    rgt-hint --atac-footprints --organism=mm10 --output-location=session2/step2/output/ --output-prefix=B_ATAC_chr1_footprints session2/step1/input/B_ATAC_chr1.bam session2/step1/input/B_ATACPeaks_chr1.bed
 
-To call footprints with histone data execute the commands:
+This will generate an output file XXX containing the genomic locations of the footprints. We also include some relevant statistics as the number of ATAC-seq reads (Tag Count) in the XXX collumn, as this is an indication of the TF activity. 
+
+HINT is able to detected footprint in other chromatin experiments as DNAse-seq or ChIP-seq from histone modifications. For this, you need to specific the first flag, which indicates the models to be used (--histone-footprints, --atac-footprints or --dnase-footprints). 
+
+**3.** You can use the following commands to find footprints in H3K27ac ChIP-seq in the same cells are above. 
 ::
     rgt-hint --histone-footprints --organism=mm10 --output-location=./ --output-prefix=B_H3K27Ac_chr1_footprints ../../../session2/step1/input/B_H3K27Ac_chr1.bam ../../../session2/step1/input/B_H3K27AcPeaks_chr1.bed
     rgt-hint --histone-footprints --organism=mm10 --output-location=./ --output-prefix=CD4_H3K27Ac_chr1_footprints ../../../session2/step1/input/CD4_H3K27Ac_chr1.bam ../../../session2/step1/input/CD4_H3K27AcPeaks_chr1.bed
     rgt-hint --histone-footprints --organism=mm10 --output-location=./ --output-prefix=LSK_H3K27Ac_chr1_footprints ../../../session2/step1/input/LSK_H3K27Ac_chr1.bam ../../../session2/step1/input/LSK_H3K27AcPeaks_chr1.bed
 
-The above commands will output a BED file containing the footprints, inside the current folder. Each footprint, i.e. each line of the BED file, will also contain information regarding the tag-count score of each footprint. This score can be used as a footprint quality assessment (the higher the value, the better). In addition, a file including the details of reads and footprints will also be written in the same folder of BED file.
+If you are curious to see how these footprint looks like, open all bam, peak and footprint files for ATAC-seq and H3K27ac in your IGV (remember to set the genome version to mm10 beforehand) and search for the gene XXX. We observe that ATAC-seq footprints are small and mostly inside H3K27ac footprints. This reflex the higher resolution of ATAC-seq comparing to histone data in finding open chromatin regions. Moreover, H3K27ac footprints are within peaks of H3K27ac. 
 
-**4.** Execute the following commands to do motif matching:
+**4.** Indeed, the major question when doing footprint analysis is to find motifs overllaping with footprints. RGT suite also offers a tool for finding motif matches. For example, we analyse here motifs from factors PU.1, ELK4 and XXX, which were found in Lara-Astiaso et al. 2014 to be associated to MPP, T CD4 and B cells. 
+
+Execute the following commands to do motif matching:
 ::
     rgt-motifanalysis --matching --organism=mm10 --output-location=./ --use-only-motifs=../../../session2/step1/input/motifs.txt ../../../session2/step1/result/B_ATAC_footprints.bed
     rgt-motifanalysis --matching --organism=mm10 --output-location=./ --use-only-motifs=../../../session2/step1/input/motifs.txt ../../../session2/step1/result/CD4_ATAC_footprints.bed
     rgt-motifanalysis --matching --organism=mm10 --output-location=./ --use-only-motifs=../../../session2/step1/input/motifs.txt ../../../session2/step1/result/Lsk_ATAC_footprints.bed
+
+The above commands will generate three BED files containing the matched motif instances overllaping with distinct footprint regions. Note that rgt-motifanalysis can be used for searching motifs genome-wide or using all motifs for typical databases (see XXX). 
+
+**5.** Finally, we use HINT to generate average ATAC-seq profiles around binding sites of particular motifs. Thee allow us to inspect the cut profiles and the underlying sequence conservation. Moreover, by comparing the cut profiles from two ATAC-seq libraries (LKS vs B cells), it is possible to inspect the chromatin and TF activity status. For this, execute the following commmands:
+::
+    mkdir B_CD4
+    cat ./B_ATAC_footprints_mpbs.bed ./CD4_ATAC_footprints_mpbs.bed | sort -k1,1 -k2,2n | uniq > ./B_CD4/mpbs.bed
+    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=./B_CD4/mpbs.bed --reads-file1=../../../session2/step1/input/B.bam --reads-file2=../../../session2/step1/input/CD4.bam --output-location=./B_CD4 --output-prefix=B_CD4
+
+    mkdir LSK_B
+    cat ./LSK_ATAC_footprints_mpbs.bed ./B_ATAC_footprints_mpbs.bed | sort -k1,1 -k2,2n | uniq > ./LSK_B/mpbs.bed
+    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=./LSK_B/mpbs.bed --reads-file1=../../../session2/step1/input/LSK.bam --reads-file2=../../../session2/step1/input/B.bam --output-location=./LSK_B --output-prefix=LSK_B
+
+    mkdir LSK_CD4
+    cat ./LSK_ATAC_footprints_mpbs.bed ./CD4_ATAC_footprints_mpbs.bed | sort -k1,1 -k2,2n | uniq > ./LSK_CD4/mpbs.bed
+    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=./LSK_CD4/mpbs.bed --reads-file1=../../../session2/step1/input/LSK.bam --reads-file2=../../../session2/step1/input/CD4.bam --output-location=./LSK_CD4 --output-prefix=LSK_CD4
+
+The above commands will populate the specificed folder with the following files:
+
+#. X.eps and X.pdf: line plot for motif X.
+#. X.pwm: a position weight matrix file used to generate the sequence logo.
+#. con1_con2_factor.txt: a text file containing normalization factors.
 
 Step2: Intersecting footprints with differential histone peaks
 -----------------------------------------------
@@ -184,4 +208,4 @@ To use this script, go to the folder ``TEPIC/MachineLearningPipelines/DYNAMITE/S
 
 This command will generate a plot comparing HOXA3 in LSK against CD4. Feel free to look at further features as you wish. The figure will be stored in the specified directory that contains the results of the *DYNAMITE* analysis.
 Again, note that you have to **replace** the prefix ``/local/home/fschmidt/Documents/Research/`` with the proper path used on your system. 
-Precomputed results are stored in ``/EpigenomicsTutorial-ISMB2017/session2/Step3/result`.
+Precomputed results are stored in ``/EpigenomicsTutorial-ISMB2017/session2/Step3/result``.
