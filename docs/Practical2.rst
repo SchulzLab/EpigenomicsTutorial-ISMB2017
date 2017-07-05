@@ -1,10 +1,10 @@
 ==================================================================
 Practical II - Footprint calling & Transcription factor prediction
 ==================================================================
-In the second practical, we will first identify TF-footprints using the software `HINT <http://github.com/CostaLab/reg-gen>`_ and
-combine those with differential histone peaks called using `histoneHMM <http://histonehmm.molgen.mpg.de>`_ (c.f. practical 1).
-Thereby, we will identify tissue specific sets of differential candidate binding regions for TF binding. These are used in a 
-`DYNAMITE documentation <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_ analysis with the aim
+In the second practical, we will perform a footprint analysis with `HINT <http://github.com/CostaLab/reg-gen>`_ to indetify cell specific binding sites from open chromatin data (ATAC-seq). Next, we 
+will combine the footprints with the differential histone peaks called using `histoneHMM <http://histonehmm.molgen.mpg.de>`_ (c.f. practical 1). 
+Thereby, we will identify tissue specific TF binding sites, which are located in regions with chromatin changes. These are used in a 
+`DYNAMITE <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_ analysis with the aim
 of inferring TFs might be related to gene expression differences between the tissues of interest. 
 
 Step1: Footprint calling
