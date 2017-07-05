@@ -1,7 +1,7 @@
 ==================================================================
 Practical II - Footprint calling & Transcription factor prediction
 ==================================================================
-In the second practical, we will perform a footprint analysis with `HINT <http://github.com/CostaLab/reg-gen>`_ to identify cell specific binding sites from open chromatin data (ATAC-seq). Next, we 
+In the second practical, we will perform a footprint analysis with `HINT <http://www.regulatory-genomics.org/hint/>`_ to identify cell specific binding sites from open chromatin data (ATAC-seq). Next, we 
 will combine the footprints with the differential histone peaks detected by `histoneHMM <http://histonehmm.molgen.mpg.de>`_ (c.f. practical 1). 
 Thereby, we will find tissue specific TF binding sites, which are located in regions with cell spefici histone peaks. These regulatory regions are used in a 
 `DYNAMITE <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_ analysis with the aim
@@ -10,9 +10,9 @@ of inferring TFs might be related to gene expression differences between the tis
 Step1: Footprint calling
 -----------------------------------------------
 
-To perform footprinting, we need (1) a bam file containing the sequence data and (2) a bed file including the interesting regions, such as DNase I hypersensitive sites (DHSs) for DNase-seq and peaks for ATAC-seq. 
+First, we will use `HINT <http://www.regulatory-genomics.org/hint/>`_ to find genomic regions (footprints) with cell active TF binding sites. For this, HINT requires (1) a sorted bam file containing the aligned reads from DNase-,ATAC- or histone ChIP-seq (2) and a bed file including peaks detected in the bam file provided  (1). This peak bed file is used by HINT to reduce the search space and can be geneated by any  peak caller. Moreover, you need to specific the genome version and output directories. 
 
-All input files are found in the folder ``/EpigenomicsTutorial-ISMB2017/session2/step1/input``
+Here, we will analyse ATAC-seq data from LSK cells (equivalent to MPP cells), B cells and T CD4 cells. We have perfromed low level steps including read alignment, index files and peaks. They are found in this folder ``/EpigenomicsTutorial-ISMB2017/session2/step1/input``
 
 **1.** Assure that you are in the directory ``EpigenomicsTutorial-ISMB2017/output/session2``, otherwise *cd* to that directory.
 
