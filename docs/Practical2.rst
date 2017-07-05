@@ -12,7 +12,7 @@ Step1: Footprint calling
 
 First, we will use `HINT <http://www.regulatory-genomics.org/hint/>`_ to find genomic regions (footprints) with cell active TF binding sites. For this, HINT requires (1) a sorted bam file containing the aligned reads from the sequencing library (DNase-,ATAC- or histone ChIP-seq) (2) and a bed file including peaks detected in the same sequencing library provided in (1). These peak regions are used by HINT to reduce the search space and can be geneated by any  peak caller. 
 
-Here, we will analyse ATAC-seq data from LSK cells (equivalent to MPP cells), B cells and T CD4 cells obtained from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_. We have perfromed low level analysis steps including read alignment and peaks calling in chromossome 1, which can be found in this folder ``/EpigenomicsTutorial-ISMB2017/session2/step1/input``. Check here for an script describing how these were generated ``XXX - to do``.
+Here, we will analyse ATAC-seq data from LSK cells (equivalent to MPP cells), B cells and T CD4 cells obtained from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_. We have perfromed low level analysis steps including read alignment and peaks calling in chromossome 1, which can be found in this folder ``/EpigenomicsTutorial-ISMB2017/session2/step1/input``. Check here for a script describing how these were generated ``XXX - to do``.
 
 **1.** First, go to the EpigenomicsTutorial-ISMB2017 directory and generate an output folder for the result files:
 ::
@@ -151,18 +151,16 @@ The *cfg* files are configuration files that specify the path to all files neede
 The results of the analysis will be stored seperately for each run in ``EpigenomicsTutorial-ISMB2017/output/session2/step3/``. There are three subfolders for
 each comparison:
 
-#.Affinities
-#.IntegratedData
-#.Learning_Results
+#. Affinities
+#. IntegratedData
+#. Learning_Results
 
 The folder *Affinities* contains TF affinities calculated in the provided regions for both groups, gene TF scores for both groups, and a metadata file that
-lists all settings used for the TF annotation with *TEPIC* (subfolders *group1* and *group2*). The subfolder *mean* contains the mean gene TF scores computed
-for group1 and group2. This is needed if you analyse more than one biological replicate per group. The folder *ratio* contains the gene TF score ratios computed between
+lists all settings used for the TF annotation with *TEPIC* (subfolders *group1* and *group2*). The subfolder *mean* contains the mean gene TF scores computed for group1 and group2. This is needed if you analyse more than one biological replicate per group. The folder *ratio* contains the gene TF score ratios computed between
 the gene TF scores of group1 and group2.
 
 The folder *IntegratedData* encloses matrices that are composed of (1) gene TF score ratios and (2) a measure of differential gene expression. In the folder *Log2* the differential gene expression
-is represented as the log2 expression ratio between group1 and group2. In the folder *Binary* a 1 means a gene is upregulated in group 1 compared to group 2, whereas a 0 means it is downregulated in group1.
-The binary format is used as input for the classification. 
+is represented as the log2 expression ratio between group1 and group2. In the folder *Binary*, the differential gene expression is shwon in a binary way. Here, a 1 means a gene is upregulated in group 1 compared to group 2, whereas a 0 means it is downregulated in group1. The binary format is used as input for the classification. 
 
 The folder *Learning_Results* comprises the results of the logistic regression classifier. The following files should be produced if all R dependencies are available:
 
