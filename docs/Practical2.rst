@@ -33,9 +33,13 @@ To call footprints with histone data execute the commands:
     rgt-hint --histone-footprints --organism=mm10 --output-location=./ --output-prefix=CD4_H3K27Ac_chr1_footprints ../../../session2/step1/input/CD4_H3K27Ac_chr1.bam ../../../session2/step1/input/CD4_H3K27AcPeaks_chr1.bed
     rgt-hint --histone-footprints --organism=mm10 --output-location=./ --output-prefix=LSK_H3K27Ac_chr1_footprints ../../../session2/step1/input/LSK_H3K27Ac_chr1.bam ../../../session2/step1/input/LSK_H3K27AcPeaks_chr1.bed
 
-The above commands will output a BED file containing the footprints, inside the current folder with test as the prefix. Each footprint, i.e. each line of the BED file, will also contain information regarding the tag-count score of each footprint. This score can be used as a footprint quality assessment (the higher the value, the better). In addition, a file including the details of reads and footprints will also be written in the same folder of BED file.
+The above commands will output a BED file containing the footprints, inside the current folder. Each footprint, i.e. each line of the BED file, will also contain information regarding the tag-count score of each footprint. This score can be used as a footprint quality assessment (the higher the value, the better). In addition, a file including the details of reads and footprints will also be written in the same folder of BED file.
 
 **4.** Execute the following commands to do motif matching:
+::
+    rgt-motifanalysis --matching --organism=mm10 --output-location=./ --use-only-motifs=../../../session2/step1/input/motifs.txt ../../../session2/step1/result/B_ATAC_footprints.bed
+    rgt-motifanalysis --matching --organism=mm10 --output-location=./ --use-only-motifs=../../../session2/step1/input/motifs.txt ../../../session2/step1/result/CD4_ATAC_footprints.bed
+    rgt-motifanalysis --matching --organism=mm10 --output-location=./ --use-only-motifs=../../../session2/step1/input/motifs.txt ../../../session2/step1/result/Lsk_ATAC_footprints.bed
 
 Step2: Intersecting footprints with differential histone peaks
 -----------------------------------------------
