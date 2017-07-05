@@ -12,7 +12,7 @@ Step1: Footprint calling
 
 First, we will use `HINT <http://www.regulatory-genomics.org/hint/>`_ to find genomic regions (footprints) with cell specific TF binding sites. For this, HINT requires (1) a sorted bam file containing the aligned reads from the sequencing library (DNase-,ATAC- or histone ChIP-seq) (2) and a bed file including peaks detected in the same sequencing library provided in (1). These peak regions are used by HINT to reduce the search space and can be geneated by any  peak caller. 
 
-Here, we will analyse ATAC-seq data from LSK cells (equivalent to MPP cells), B cells and T CD4 cells obtained from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_. We have perfromed low level analysis steps including read alignment and peaks calling in chromossome 1, which can be found in this folder ``/EpigenomicsTutorial-ISMB2017/session2/step1/input``. Check here for a script describing how these were generated ``XXX - to do``.
+Here, we will analyse ATAC-seq data from LSK cells (equivalent to MPP cells), B cells and T CD4 cells obtained from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_. We have perfromed low level analysis steps including read alignment and peaks calling in chromossome 1, which can be found in this folder ``/EpigenomicsTutorial-ISMB2017/session2/step1/input``. Check `here <https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/blob/master/session2/step1/input/scripts.sh>`_ for a script describing how these were generated.
 
 **1.** First, go to the EpigenomicsTutorial-ISMB2017 directory and generate an output folder for the result files:
 ::
