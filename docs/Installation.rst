@@ -60,7 +60,7 @@ Next, install dependencies:
 ::
 
     pip install --user cython numpy scipy
-
+    pip install --user https://github.com/fabioticconi/MOODS/tarball/pypi-ready
 
 and finally install HINT and RGT suite.
 
