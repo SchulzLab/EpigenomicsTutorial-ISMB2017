@@ -189,7 +189,7 @@ The heatmap *Regression_Coefficients_Cross_Validation_Heatmap_Integrated_Data_Fo
 the outer cross validation. This is very well suited to find features that are stably selected in all outer cross validation folds. The raw data used to generate the figure is stored in 
 *Regression_Coefficients_Cross_Validation_Integrated_Data_For_Classification.txt*. The stronger a regression coefficient, the more important it is in the model.
 
-In addition to the heatmap showing the regression coefficients during the outer cross validation, we also compute the regression coefficients that are learned on the full
+In addition to the heatmap showing the regression coefficients during the outer cross validation, we also show the regression coefficients learned on the full
 data set: *Regression_Coefficients_Entire_Data_SetIntegrated_Data_For_Classification.png* and *Regression_Coefficients_Entire_Data_Set_Integrated_Data_For_Classification.txt*.
 
 The figures *Misclassification_Lambda_<1..6>_Integrated_Data_For_Classification.svg* are of technical nature. They show the relationship between the misclassification error and the lambda parameter of the logistic regression function. 
