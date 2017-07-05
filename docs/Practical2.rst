@@ -47,18 +47,15 @@ The above commands will generate three BED files containing the matched motif in
 ::
     mkdir B_CD4
     cat ./B_ATAC_footprints_mpbs.bed ./CD4_ATAC_footprints_mpbs.bed | sort -k1,1 -k2,2n | uniq > ./B_CD4/mpbs.bed
-    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=./B_CD4/mpbs.bed --reads-file1=../../../session2/step1/input/B.bam \
-    --reads-file2=../../../session2/step1/input/CD4.bam --output-location=./B_CD4 --output-prefix=B_CD4
+    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=./B_CD4/mpbs.bed --reads-file1=../../../session2/step1/input/B.bam --reads-file2=../../../session2/step1/input/CD4.bam --output-location=./B_CD4 --output-prefix=B_CD4
 
     mkdir LSK_B
     cat ./LSK_ATAC_footprints_mpbs.bed ./B_ATAC_footprints_mpbs.bed | sort -k1,1 -k2,2n | uniq > ./LSK_B/mpbs.bed
-    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=./LSK_B/mpbs.bed --reads-file1=../../../session2/step1/input/LSK.bam \
-    --reads-file2=../../../session2/step1/input/B.bam --output-location=./LSK_B --output-prefix=LSK_B
+    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=./LSK_B/mpbs.bed --reads-file1=../../../session2/step1/input/LSK.bam --reads-file2=../../../session2/step1/input/B.bam --output-location=./LSK_B --output-prefix=LSK_B
 
     mkdir LSK_CD4
     cat ./LSK_ATAC_footprints_mpbs.bed ./CD4_ATAC_footprints_mpbs.bed | sort -k1,1 -k2,2n | uniq > ./LSK_CD4/mpbs.bed
-    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=./LSK_CD4/mpbs.bed --reads-file1=../../../session2/step1/input/LSK.bam \
-    --reads-file2=../../../session2/step1/input/CD4.bam --output-location=./LSK_CD4 --output-prefix=LSK_CD4
+    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=./LSK_CD4/mpbs.bed --reads-file1=../../../session2/step1/input/LSK.bam --reads-file2=../../../session2/step1/input/CD4.bam --output-location=./LSK_CD4 --output-prefix=LSK_CD4
 
 The above commands will populate the specificed folder with the following files:
 
