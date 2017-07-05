@@ -159,4 +159,4 @@ To use this script, go to the folder ``TEPIC/MachineLearningPipelines/DYNAMITE/S
 
 This command will generate a plot comparing HOXA3 in LSK vs CD4. Feel free to look at further features as you wish. The figure will be stored in the specified directory that contains the results of the *DYNAMITE* analysis.
 Again, note that you have to **replace** the prefix ``/local/home/fschmidt/Documents/Research/`` with the proper path used on your system. 
-Precomputed results are stored in ``/EpigenomicsTutorial-ISMB2017/session2/Step3/result`.
+Precomputed results are stored in ``/EpigenomicsTutorial-ISMB2017/session2/Step3/result``.
