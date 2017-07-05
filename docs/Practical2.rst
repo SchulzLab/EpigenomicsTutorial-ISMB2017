@@ -94,8 +94,12 @@ During a *DYNAMITE* analysis, two main computational tasks are undertaken:
 #. We calculate TF binding affinities for an example data set of 93 TFs and aggregate those to gene-TF scores using *TEPIC*. TF affinities are a quantitative measure of TF binding to a distinct genomic region. 
 #. A logistic regression classifier is learned that uses changes in TF gene scores between two samples to predict which genes are up/down- regulated between them. Investigating the features of the model allows the inference of potentially interesting regulators that are correlated to the observed expression changes. 
 
+Please check the `documentation <https://github.com/SchulzLab/TEPIC/blob/master/docs/Description.pdf>`_ for details on the method.
+
 We provide a script that automatically performs steps (1) and (2) as well as necessary data processing and formatting steps (See `DYNAMITE documentation <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_ for details).
 All files used in this step are available in ``/EpigenomicsTutorial-ISMB2017/session2/Step3/input``. Additionally, we require the mm10 reference genome, which you should have downloaded while installing *HINT*.
+
+Note that we precomputed the differential gene expression estimates. Computing those is neither part of the actual tutorial nor of the *DYNAMITE* workflow. However a tool you could use to compute differential gene/transcript expression is `Cuffdiff <http://cole-trapnell-lab.github.io/cufflinks/cuffdiff/>`_.
 
 **1.** Assure that you are in the directory ``EpigenomicsTutorial-ISMB2017/output/session2``, otherwise *cd* to that directory.
 
@@ -120,7 +124,53 @@ and B vs CD4
 
 Note that you have to **replace** the prefix ``/local/home/fschmidt/Documents/Research/`` with the proper path used on your system. 
 The *cfg* files are configuration files that specify the path to all files needed in a *DYNAMITE* analysis, e.g. bed files for candidate binding regions.
-The results of the analysis will be stored seperately for each run in ``EpigenomicsTutorial-ISMB2017/output/session2/step3/``.
+The results of the analysis will be stored seperately for each run in ``EpigenomicsTutorial-ISMB2017/output/session2/step3/``. There are three subfolders for
+each comparison:
+
+#.Affinities
+#.IntegratedData
+#.Learning_Results
+
+The folder *Affinities* contains TF affinities calculated in the provided regions for both groups, gene TF scores for both groups, and a metadata file that
+lists all settings used for the TF annotation with *TEPIC* (subfolders *group1* and *group2*). The subfolder *mean* contains the mean gene TF scores computed
+for group1 and group2. This is needed if you analyse more than one biological replicate per group. The folder *ratio* contains the gene TF score ratios computed between
+the gene TF scores of group1 and group2.
+
+The folder *IntegratedData* encloses matrices that are composed of (1) gene TF score ratios and (2) a measure of differential gene expression. In the folder *Log2* the differential gene expression
+is represented as the log2 expression ratio between group1 and group2. In the folder *Binary* a 1 means a gene is upregulated in group 1 compared to group 2, whereas a 0 means it is downregulated in group1.
+The binary format is used as input for the classification. 
+
+The folder *Learning_Results* comprises the results of the logistic regression classifier. The following files should be produced if all R dependencies are available:
+
+#. Performance_overview.txt
+#. Confusion-Matrix_<1..6>_Integrated_Data_For_Classification.txt
+#. Regression_Coefficients_Cross_Validation_Integrated_Data_For_Classification.txt
+#. Regression_Coefficients_Entire_Data_Set_Integrated_Data_For_Classification.txt
+#. Performance_Barplots.png
+#. Regression_Coefficients_Cross_Validation_Heatmap_Integrated_Data_For_Classification.svg
+#. Regression_Coefficients_Entire_Data_SetIntegrated_Data_For_Classification.png
+#. Misclassification_Lambda_<1..6>_Integrated_Data_For_Classification.svg
+
+The file *Performance_overview.txt* contains accuracy on Test and Training data sets as well as F1 measures. These values are visualised in *Performance_Barplots.png*.
+As the name suggests, the files *Confusion-Matrix_<1..6>_Integrated_Data_For_Classification.txt* contain the confusion matrix computed on the test data sets.
+They show model performance by reporting True Positives (TP), False Positives (FP), True Negatives (TN), and False Negatives (FN) in the following layout:
+
++---------------------+----------+----------+
+| Observed/Predicted  | Positive | Negative |
++=====================+==========+==========+
+| Positive            |    TP    |    FN    |
++---------------------+----------+----------+
+| Negative            |    FP    |    TN    |
++---------------------+----------+----------+
+
+The heatmap *Regression_Coefficients_Cross_Validation_Heatmap_Integrated_Data_For_Classification.svg* shows the regression coefficients of all selected features in
+the outer cross validation. This is very well suited to find features that are stably selected in all outer cross validation folds. The raw data used to generate the figure is stored in 
+*Regression_Coefficients_Cross_Validation_Integrated_Data_For_Classification.txt*. The stronger a regression coefficient, the more important it is in the model.
+
+In addition to the heatmap showing the regression coefficients during the outer cross validation, we also compute the regression coefficients that are learned on the full
+data set: *Regression_Coefficients_Entire_Data_SetIntegrated_Data_For_Classification.png* and *Regression_Coefficients_Entire_Data_Set_Integrated_Data_For_Classification.txt*.
+
+The figures *Misclassification_Lambda_<1..6>_Integrated_Data_For_Classification.svg* are of technical nature. They show the relationship between the misclassification error and the lambda parameter of the logistic regression function. 
 
 **5.** In addition to the plots describing model performance and feature selection generated by *DYNAMITE* (as described `here <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_), you can create further Figures for a distinct feature of interest
 using the script ``TEPIC/MachineLearningPipelines/DYNAMITE/Scripts/generateFeaturePlots.R``. This will provide you with density plots showing the distribution of the feature in 
@@ -132,6 +182,6 @@ To use this script, go to the folder ``TEPIC/MachineLearningPipelines/DYNAMITE/S
 	Rscript generateFeaturePlots.R /local/home/fschmidt/Documents/Research/EpigenomicsTutorial-ISMB2017/output/session2/step3/LSK-vs-CD4/ HOXA3 LSK CD4
 
 
-This command will generate a plot comparing HOXA3 in LSK vs CD4. Feel free to look at further features as you wish. The figure will be stored in the specified directory that contains the results of the *DYNAMITE* analysis.
+This command will generate a plot comparing HOXA3 in LSK against CD4. Feel free to look at further features as you wish. The figure will be stored in the specified directory that contains the results of the *DYNAMITE* analysis.
 Again, note that you have to **replace** the prefix ``/local/home/fschmidt/Documents/Research/`` with the proper path used on your system. 
 Precomputed results are stored in ``/EpigenomicsTutorial-ISMB2017/session2/Step3/result`.
