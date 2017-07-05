@@ -51,7 +51,7 @@ The file ``session2/step1/motifs.txt``  contains a list of `JASPAR <http://jaspa
     mkdir session2/step1/output/LSK_CD4
     rgt-hint --diff-footprints --organism=mm10 --mpbs-file=session2/step1/output/CD4_ATAC_footprints_mpbs.bed --reads-file1=session2/step1/input/B_ATAC.bam --reads-file2=session2/step1/input/LSK_ATAC.bam --output-location=session2/step1/output/LSK_CD4 --output-prefix=LSK_CD4
 
-The above commands will generate pdf (and eps) files with a ATAC-seq profile for each of the motifs founds in the input bed files. As you can see, 
+The above commands will generate pdf (and eps) files with a ATAC-seq profile for each of the motifs founds in the input bed files. Let's check the profiles in the comparirson LSK and CD4, you will see that ELK4 has higher number of ATAC-seq counts in CD4 cells, while SFP1 has more ATAC-seq in LSK cells. This fits with the results discussed in Lara-Astiaso that SFP1 are more relevant/active in LSK, while ELK4 in CD4 cells.
 
 Step2: Intersecting footprints with differential histone peaks
 -----------------------------------------------
