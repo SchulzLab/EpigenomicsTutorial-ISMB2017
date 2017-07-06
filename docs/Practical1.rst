@@ -2,7 +2,7 @@
 Practical I - Differential Histone peak calling
 ===============================================
 
-In the first part of the practical, we will have a look at histone modifications in different cell-lines as measured by ChIP-seq experiments in B-cell, CD4-cell and LSK (MPP) cell data from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103`_.
+In the first part of the practical, we will have a look at histone modifications in different cell-lines as measured by ChIP-seq experiments in B-cell, CD4-cell and LSK (MPP) cell data from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_.
 We will use `histoneHMM <https://github.com/matthiasheinig/histoneHMM>`_ for calling regions in the genome which show histone modifications as well as for identifying those regions, which show differential modification states between cell-lines.
 The data used in this part of the practical can be found in your checked out tutorial directory under ``/EpigenomicsTutorial-ISMB2017/session1/step1/input``
 
