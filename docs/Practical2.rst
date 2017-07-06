@@ -19,7 +19,7 @@ Here, we will analyse ATAC-seq data from LSK cells (equivalent to MPP cells), B 
     cd EpigenomicsTutorial-ISMB2017
     mkdir session2/step1/output
    
-**2.** Execute the following commands to call footprints on B, LSK and CD4 cells:
+**2.** Execute the following commands to call footprints on B, LSK and CD4 cells for chromosome 1:
 ::
     rgt-hint --atac-footprints --organism=mm10 --output-location=session2/step1/output/ --output-prefix=B_ATAC_chr1_footprints session2/step1/input/B_ATAC_chr1.bam session2/step1/input/B_ATACPeaks_chr1.bed
     rgt-hint --atac-footprints --organism=mm10 --output-location=session2/step1/output/ --output-prefix=LSK_ATAC_chr1_footprints session2/step1/input/LSK_ATAC_chr1.bam session2/step1/input/LSK_ATACPeaks_chr1.bed
@@ -37,24 +37,25 @@ This bigwig file contains number of ATAC-seq (or DNAse-seq) reads at each genomi
 
 Open all bigwig and footprint files (bed) generated above in your IGV. Remember to set the genome version to mm10 beforehand. You can also enrich the data by opening bam files of histone modifications as H327ac or H3K4me1 (provided in session 1). Check for example the genomic profiles around the gene Zp70, which is part of T cell receptors. We observe that this gene has several open chromatin regions and high levels of histone levels in the three first exons,which are specific to CD4 T cells. 
 
-**3.** A import question when doing footprint analysis is to evaluate which TF motifs overllap with footprints and evaluate the ATAC-seq profiles around these motifs. RGT suite also offers a tool for finding motif predicted binding sites (mpbs). For example, we analyse here motifs from factors SPI1 and ELK4, which were discussed in Lara-Astiaso et al. 2014 to be associated respectivelly associated to LSK and CD4 cells.
+**3.** An important question when doing footprint analysis is to evaluate which TF motifs overlap with footprints and evaluate the ATAC-seq profiles around these motifs. RGT suite also offers a tool for finding motif predicted binding sites (mpbs). For example, we analyse here motifs from factors SPI1 and ELK4, which were discussed in Lara-Astiaso et al. 2014 to be associated respectivelly associated to LSK and CD4 cells.
 
-Execute the following commands to do motif matching inside footprints:
+Execute the following commands to do motif matching inside footprints for chromosome 1:
 ::
-..    rgt-motifanalysis --matching --organism=mm10 --output-location=session2/step1/output/ --use-only-motifs=session2/step1/input/motifs.txt session2/step1/result/B_ATAC_footprints.bed
-    rgt-motifanalysis --matching --organism=mm10 --output-location=session2/step1/output/ --use-only-motifs=session2/step1/input/motifs.txt session2/step1/result/CD4_ATAC_footprints.bed
-    rgt-motifanalysis --matching --organism=mm10 --output-location=session2/step1/output/ --use-only-motifs=session2/step1/input/motifs.txt session2/step1/result/Lsk_ATAC_footprints.bed
+    rgt-motifanalysis --matching --organism=mm10 --output-location=session2/step1/output/ --use-only-motifs=session2/step1/input/motifs.txt session2/step1/output/B_ATAC_chr1_footprints.bed
+    rgt-motifanalysis --matching --organism=mm10 --output-location=session2/step1/output/ --use-only-motifs=session2/step1/input/motifs.txt session2/step1/output/CD4_ATAC_chr1_footprints.bed
+    rgt-motifanalysis --matching --organism=mm10 --output-location=session2/step1/output/ --use-only-motifs=session2/step1/input/motifs.txt session2/step1/output/LSK_ATAC_chr1_footprints.bed
 
 The file ``session2/step1/motifs.txt``  contains a list of `JASPAR <http://jaspar.genereg.net/>`_ motif ids to be used in the analysis. Ignoring this option will search for all JASPAR motifs. The above commands will generate bed files (i.e. LSK_ATAC_footprints_mpbs.bed) containing mpbs overllaping with distinct footprint regions. The 4th collumn contains the motif name and the 5th collumn the bitscore of the motif match.  If you open these files in IGV, you will observe that a ELK4 binding site near the 3rd exon of the gene Zp70. 
+Motif matching of genome wide are found in `here <https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/tree/master/session2/step1/result/>`_ 
 
 **4.** Finally, we use HINT to generate average ATAC-seq profiles around binding sites of particular TF. These analysis allow us to inspect the chromatin chromatin accessibility and the underlying sequence. Moreover, by comparing the cut profiles from two ATAC-seq libraries (i.s. LSK vs T CD4 cells
 ), one can get insights on changes in binding in two cells. For this, execute the following commmands:
 ::
-..    mkdir session2/step1/output/LSK_B
-..    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=session2/step1/output/B_ATAC_footprints_mpbs.bed --reads-file1=session2/step1/input/B_ATAC.bam --reads-file2=session2/step1/input/LSK_ATAC.bam --output-location=session2/step1/output/LSK_B --output-prefix=LSK_B
+    mkdir session2/step1/output/LSK_B
+    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=session2/step1/result/LSK_B_ATAC_footprints_mpbs.bed --reads-file1=session2/step1/input/LSK_ATAC.bam --reads-file2=session2/step1/input/B_ATAC.bam --output-location=session2/step1/output/LSK_B --output-prefix=LSK_B
 
     mkdir session2/step1/output/LSK_CD4
-    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=session2/step1/output/CD4_ATAC_footprints_mpbs.bed --reads-file1=session2/step1/input/B_ATAC.bam --reads-file2=session2/step1/input/LSK_ATAC.bam --output-location=session2/step1/output/LSK_CD4 --output-prefix=LSK_CD4
+    rgt-hint --diff-footprints --organism=mm10 --mpbs-file=session2/step1/result/LSK_CD4_ATAC_footprints_mpbs.bed --reads-file1=session2/step1/input/LSK_ATAC.bam --reads-file2=session2/step1/input/CD4_ATAC.bam --output-location=session2/step1/output/LSK_CD4 --output-prefix=LSK_CD4
 
 The above commands will generate pdf (and eps) files with a ATAC-seq profile for each of the motifs founds in the provided mpbs bed files. Let's check the profiles in the comparirson LSK and CD4, you will see that ELK4 has higher number of ATAC-seq counts in CD4 cells, while SFP1 has more ATAC-seq in LSK cells. This fits with the results discussed in Lara-Astiaso that SFP1 are more relevant/active in LSK, while ELK4 in CD4 cells.
 
