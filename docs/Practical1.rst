@@ -2,7 +2,7 @@
 Practical I - Differential Histone peak calling
 ===============================================
 
-In the first part of the practical, we will have a look at histone modifications in different cell-lines as measured by ChIP-seq experiments in B-cell, CD4-cell and LSK (MPP) cell data from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_.
+In the first part of the practical, we will have a look at histone modifications in different cell-lines as measured by ChIP-seq experiments in B-cell, CD4-cell and LSK (MPP) cell data from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_. Specifically, we look at the H3K4me3 and H3K27ac histone modifications and will analyze how they change between blood progenitor and more differentiated cell-lines.
 We will use `histoneHMM <https://github.com/matthiasheinig/histoneHMM>`_ for calling regions in the genome which show histone modifications as well as for identifying those regions, which show differential modification states between cell-lines.
 The data used in this part of the practical can be found in your checked out tutorial directory under ``/EpigenomicsTutorial-ISMB2017/session1/step1/input``
 
@@ -24,8 +24,8 @@ You can see the *.bam and *.bai files for the three cell-lines and the two exami
     samtools flagstat $i > step1/output/stats/$(basename $i .bam).summary ; 
   done
 
-This will create for each of the available *.bam files a short read summary in the step1/output/stats directory.
-In those summary files you can see that the input files are rather low input. In our case, howvever, we can never the less work with those experiments rather well. 
+This will create for each of the available *.bam files a short read summary in the step1/output/stats directory. 
+Now check those files, what do you see? Also have a look at the header of the *.bam files, what can you observe?
 
 **3.** Have a look at the *.bam files using the IGV
 
@@ -40,10 +40,13 @@ NOTE: Before going on, make sure that the histoneHMM 'bin' directory is containe
 **1.** Run histoneHMM's 'call_regions'
 ::
   mkdir -p step2/output/regions
-  wget ftp://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz | gunzip -c
+  wget ftp://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
+  gunzip chromInfo.txt.gz
+  # we filter the chr1 only, since we only have chr1 reads
+  grep chr1 chromInfo.txt > chromInfo.chr1.txt
   for i in step2/input/*.bam ; do 
     prefix=step2/output/regions/$(basename $i .bam)
-    histoneHMM_call_regions.R -b 2000 -c chromInfo.txt -o ${prefix} $i &> ${prefix}.debug
+    histoneHMM_call_regions.R -b 2000 -c chromInfo.chr1.txt -o ${prefix} $i &> ${prefix}.debug
   done
 
 Now for each experiment, the script generated a set of files. Figure out what the different files are using the histoneHMM `manual <http://histonehmm.molgen.mpg.de/v1.6/histoneHMM.pdf>`_ . 
@@ -58,18 +61,20 @@ NOTE: If you want you can redirect all output of histoneHMM using the '$>' opera
 
 **1.** Call differential regions
 ::
-  mkdir -p step3/output/differential
   odir=step3/output/differential
+  mkdir -p ${odir}
   idir=step3/input/regions/
+  
   # call differential analysis for all possible comparisons
   # for H3K4me3
-  histoneHMM_call_differential.R --outdir ${odir} ${idir}/LSK_H3K4me3.txt ${idir}/CD4_H3K4me3.txt
-  histoneHMM_call_differential.R --outdir ${odir} ${idir}/CD4_H3K4me3.txt ${idir}/B_H3K4me3.txt
-  histoneHMM_call_differential.R --outdir ${odir} ${idir}/LSK_H3K4me3.txt ${idir}/B_H3K4me3.txt
+  histoneHMM_call_differential.R --sample1 LSK_H3K4me3 --sample2 CD4_H3K4me3 --outdir ${odir} ${idir}/LSK_H3K4me3.txt ${idir}/CD4_H3K4me3.txt
+  histoneHMM_call_differential.R --sample1 CD4_H3K4me3 --sample2 B_H3K4me3 --outdir ${odir} ${idir}/CD4_H3K4me3.txt ${idir}/B_H3K4me3.txt
+  histoneHMM_call_differential.R --sample1 LSK_H3K4me3 --sample2 B_H3K4me3 --outdir ${odir} ${idir}/LSK_H3K4me3.txt ${idir}/B_H3K4me3.txt
+  
   # for H3K27ac
-  histoneHMM_call_differential.R --outdir ${odir} ${idir}/LSK_H3K27ac.txt ${idir}/CD4_H3K27ac.txt
-  histoneHMM_call_differential.R --outdir ${odir} ${idir}/CD4_H3K27ac.txt ${idir}/B_H3K27ac.txt
-  histoneHMM_call_differential.R --outdir ${odir} ${idir}/LSK_H3K27ac.txt ${idir}/B_H3K27ac.txt
+  histoneHMM_call_differential.R --sample1 LSK_H3K27ac --sample2 CD4_H3K27ac --outdir ${odir} ${idir}/LSK_H3K27ac.txt ${idir}/CD4_H3K27ac.txt
+  histoneHMM_call_differential.R --sample1 CD4_H3K27ac --sample2 B_H3K27ac --outdir ${odir} ${idir}/CD4_H3K27ac.txt ${idir}/B_H3K27ac.txt
+  histoneHMM_call_differential.R --sample1 LSK_H3K27ac --sample2 B_H3K27ac --outdir ${odir} ${idir}/LSK_H3K27ac.txt ${idir}/B_H3K27ac.txt
   
 histoneHMM again creates several output files (check the `manual <http://histonehmm.molgen.mpg.de/v1.6/histoneHMM.pdf>`_ do get to know those files). The infividual *.gff files contain the regions which are modified in both, none or only one of the compared experiments. For further analysis, we will only consider those regions which show an average posterior probability of at least 0.8. Also we want to make the *.gff files somewhat more convenient to deal with and convert them into *.bed files. You can do this however you want, here we will use a straight forward method using only Unix commands.
 
@@ -77,7 +82,7 @@ histoneHMM again creates several output files (check the `manual <http://histone
 ::
   for i in step3/output/differential/*.gff ; do
     ofile=$(dirname $i)/$(basename $i .gff).post_08.bed
-    awk '{split($9,arr,";"); split(arr[1],arr2,"="); }{if(arr2[2]>=0.8) print $1 '\t' $4 '\t' $5}' ${ifile} > ${ofile}
+    awk '{split($9,arr,";"); split(arr[1],arr2,"="); }{if(arr2[2]>=0.8) print $1 "\t" $4 "\t" $5}' ${i} > ${ofile}
   done
 
 The new *.bed files (with the .post_08 suffix) now contain the coordinates of the differential and modified/not modified regions for the analyzed experiment. To further get to know the results, check how many differential regions were discovered for each comparison after filtering. How many regions do you observe? Do the numbers differ between the individual histone marks?
