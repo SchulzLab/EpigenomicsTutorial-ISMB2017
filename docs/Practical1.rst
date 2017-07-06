@@ -11,24 +11,24 @@ Before we look at any modifications patterns in our ChIP-seq experiments, we sha
 
 **1.** First, change into the EpigenomicsTutorial-ISMB2017 directory and see which files are available as an input
 ::
-  cd EpigenomicsTutorial-ISMB2017
-  ls -lh session1/step1/input
+  cd EpigenomicsTutorial-ISMB2017/session1
+  ls -lh step1/input
   
 You can see the *.bam and *.bai files for the three cell-lines and the two examined histone modifications. Now we want to get a brief overview on the nature of the bam files.
 
 **2.** Create summary statistics using samtools
 ::
-  mkdir session1/step1/output
-  for i in session1/step1/input/*.bam ; do 
-    samtools flagstat $i > session1/step1/output/$(basename $i .bam).summary ; 
+  mkdir -p step1/output/stats
+  for i in step1/input/*.bam ; do 
+    samtools flagstat $i > step1/output/stats/$(basename $i .bam).summary ; 
   done
 
-This will create for each of the available *.bam files a short read summary in the step1/output directory.
+This will create for each of the available *.bam files a short read summary in the step1/output/stats directory.
 In those summary files you can see that the input files are rather low input. In our case, howvever, we can never the less work with those experiments rather well. 
 
 **3.** Have a look at the *.bam files using the IGV
 
-Just open the IGV, then via ``File->Load from File`` open your *.bam file of choice. Make sure that the Mouse (mm10) genome is selected in the upper left view of the browser, since this is the genome build which was used during read mapping. Examine the bam-tracks, what do you observe? Are there regions of high/low coverage?
+Just open the IGV, then via ``File->Load from File`` open your *.bam file of choice. Make sure that the correct Mouse genome (mm10) is selected in the upper left view of the browser, since this is the genome build which was used during read mapping. Examine the bam-tracks, what do you observe? Are there regions of high/low coverage?
 
 Step 2: Calling modified regions
 -----------------------------------------------
@@ -38,10 +38,10 @@ NOTE: Before going on, make sure that the histoneHMM 'bin' directory is containe
 
 **1.** Run histoneHMM's 'call_regions'
 ::
-  mkdir session1/step1/output/regions
+  mkdir -p step2/output/regions
   wget ftp://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz | gunzip -c
-  for i in session1/step1/input/*.bam ; do 
-    prefix=session1/step1/output/regions/$(basename $i .bam)
+  for i in step2/input/*.bam ; do 
+    prefix=step2/output/regions/$(basename $i .bam)
     histoneHMM_call_regions.R -b 2000 -c chromInfo.txt -o ${prefix} $i &> ${prefix}.debug
   done
 
@@ -50,4 +50,38 @@ histoneHMM fits a mixture model to the counts using an EM algorithm. The two com
 
 Step 3: Differential region calling
 -----------------------------------------------
-more to come soon
+The next and last step in this pipeline is formed by the differential region calling. Here we will compare experiments of the same histone modification in different cell-lines. 
+To perform the differential region calling with histoneHMM, we only need a file with binned count information as is created during the previous step for both experiments we want to compare. 
+
+NOTE: If you want you can redirect all output of histoneHMM using the '$>' operator as we did in the previous step.
+
+**1.** Call differential regions
+::
+  mkdir -p step3/output/differential
+  odir=step3/output/differential
+  idir=step3/input/regions/
+  # call differential analysis for all possible comparisons
+  # for H3K4me3
+  histoneHMM_call_differential.R --outdir ${odir} ${idir}/LSK_H3K4me3.txt ${idir}/CD4_H3K4me3.txt
+  histoneHMM_call_differential.R --outdir ${odir} ${idir}/CD4_H3K4me3.txt ${idir}/B_H3K4me3.txt
+  histoneHMM_call_differential.R --outdir ${odir} ${idir}/LSK_H3K4me3.txt ${idir}/B_H3K4me3.txt
+  # for H3K27ac
+  histoneHMM_call_differential.R --outdir ${odir} ${idir}/LSK_H3K27ac.txt ${idir}/CD4_H3K27ac.txt
+  histoneHMM_call_differential.R --outdir ${odir} ${idir}/CD4_H3K27ac.txt ${idir}/B_H3K27ac.txt
+  histoneHMM_call_differential.R --outdir ${odir} ${idir}/LSK_H3K27ac.txt ${idir}/B_H3K27ac.txt
+  
+histoneHMM again creates several output files (check the `manual <http://histonehmm.molgen.mpg.de/v1.6/histoneHMM.pdf>`_ do get to know those files). The infividual *.gff files contain the regions which are modified in both, none or only one of the compared experiments. For further analysis, we will only consider those regions which show an average posterior probability of at least 0.8. Also we want to make the *.gff files somewhat more convenient to deal with and convert them into *.bed files. You can do this however you want, here we will use a straight forward method using only Unix commands.
+
+**2.** Filter and convert differential calls
+::
+  for i in step3/output/differential/*.gff ; do
+    ofile=$(dirname $i)/$(basename $i .gff).post_08.gff
+    awk '{split($9,arr,";"); split(arr[1],arr2,"="); }{if(arr2[2]>=0.8) print $1 '\t' $4 '\t' $5}' ${ifile} > ${ofile}
+  done
+
+The new *.gff files (with the .post_08 suffix) now contain the coordinates of the differential and modified/not modified regions for the analyzed experiment. To further get to know the results, check how many differential regions were discovered for each comparison after filtering. How many regions do you observe? Do the numbers differ between the individual histone marks?
+As a last step, open again IGV and load the *.bam files as before. But now also add a few of the filtered *.bed files to add tracks which show e.g. the location of the differential peaks. Can you visually discern the differential peaks in the *.bam tracks? Do you agree with the results from histoneHMM?
+
+
+
+
