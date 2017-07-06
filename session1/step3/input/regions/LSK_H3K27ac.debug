@@ -1,0 +1,708 @@
+
+Attache Paket: ‘histoneHMM’
+
+The following object is masked from ‘package:base’:
+
+    truncate
+
+Lade nötiges Paket: methods
+Lade nötiges Paket: BiocGenerics
+Lade nötiges Paket: parallel
+
+Attache Paket: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, as.vector, cbind, colnames,
+    do.call, duplicated, eval, evalq, Filter, Find, get, grep, grepl,
+    intersect, is.unsorted, lapply, lengths, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+    union, unique, unlist, unsplit
+
+Lade nötiges Paket: S4Vectors
+Lade nötiges Paket: stats4
+Lade nötiges Paket: IRanges
+Lade nötiges Paket: GenomeInfoDb
+Loading required package: MASS
+Loading required package: Rsamtools
+Loading required package: XVector
+Loading required package: Biostrings
+Initializing..
+Negbinom::update: p = 0.229058 mu = 0.261454
+Fitted: Negbinom(mu = 0.261454, size = 0.0776818);
+Negbinom::update: p = 0.489886 mu = 2.19043
+Fitted: Negbinom(mu = 2.19043, size = 2.10357);
+E-step: logLik = -163687.5 delta = NA 
+Negbinom::update: p = 0.137177 mu = 0.955576
+Fitted: Negbinom(mu = 0.955576, size = 0.151923);
+Negbinom::update: p = 0.67126 mu = 2.00398
+Fitted: Negbinom(mu = 2.00398, size = 4.09196);
+M-step: proportions = 0.2258582 0.2774625 0.4966793 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+    size 
+0.151923 
+
+Slot "mu":
+       mu 
+0.9555761 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+   size 
+4.09196 
+
+Slot "mu":
+      mu 
+2.003976 
+
+
+E-step: logLik = -155678.3 delta = 8009.151 
+Negbinom::update: p = 0.150648 mu = 1.49838
+Fitted: Negbinom(mu = 1.49838, size = 0.265763);
+Negbinom::update: p = 0.920193 mu = 1.79824
+Fitted: Negbinom(mu = 1.79824, size = 20.734);
+M-step: proportions = 0.2468076 0.313304 0.4398884 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.2657635 
+
+Slot "mu":
+      mu 
+1.498375 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+    size 
+20.73403 
+
+Slot "mu":
+      mu 
+1.798236 
+
+
+E-step: logLik = -151537.1 delta = 4141.241 
+Negbinom::update: p = 0.171882 mu = 1.78023
+Fitted: Negbinom(mu = 1.78023, size = 0.3695);
+Negbinom::update: p = 0.998329 mu = 1.67424
+Fitted: Negbinom(mu = 1.67424, size = 1000);
+M-step: proportions = 0.2678847 0.3277238 0.4043915 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.3694996 
+
+Slot "mu":
+      mu 
+1.780229 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.674236 
+
+
+E-step: logLik = -150195.8 delta = 1341.333 
+Negbinom::update: p = 0.189349 mu = 1.9375
+Fitted: Negbinom(mu = 1.9375, size = 0.452556);
+Negbinom::update: p = 0.998414 mu = 1.58878
+Fitted: Negbinom(mu = 1.58878, size = 1000);
+M-step: proportions = 0.2794097 0.3315316 0.3890587 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.4525562 
+
+Slot "mu":
+      mu 
+1.937502 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.588775 
+
+
+E-step: logLik = -149730.4 delta = 465.3262 
+Negbinom::update: p = 0.202522 mu = 2.03544
+Fitted: Negbinom(mu = 2.03544, size = 0.516904);
+Negbinom::update: p = 0.998476 mu = 1.52642
+Fitted: Negbinom(mu = 1.52642, size = 1000);
+M-step: proportions = 0.2850944 0.3324503 0.3824553 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.5169041 
+
+Slot "mu":
+      mu 
+2.035437 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.526423 
+
+
+E-step: logLik = -149510.1 delta = 220.3445 
+Negbinom::update: p = 0.211659 mu = 2.10343
+Fitted: Negbinom(mu = 2.10343, size = 0.564744);
+Negbinom::update: p = 0.998522 mu = 1.4801
+Fitted: Negbinom(mu = 1.4801, size = 1000);
+M-step: proportions = 0.2884906 0.3326722 0.3788373 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.5647436 
+
+Slot "mu":
+      mu 
+2.103435 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.480097 
+
+
+E-step: logLik = -149399.8 delta = 110.2962 
+Negbinom::update: p = 0.218099 mu = 2.15178
+Fitted: Negbinom(mu = 2.15178, size = 0.600204);
+Negbinom::update: p = 0.998557 mu = 1.44555
+Fitted: Negbinom(mu = 1.44555, size = 1000);
+M-step: proportions = 0.2905397 0.3326253 0.376835 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.6002043 
+
+Slot "mu":
+      mu 
+2.151783 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.445547 
+
+
+E-step: logLik = -149342.3 delta = 57.53169 
+Negbinom::update: p = 0.222747 mu = 2.18661
+Fitted: Negbinom(mu = 2.18661, size = 0.626642);
+Negbinom::update: p = 0.998582 mu = 1.41979
+Fitted: Negbinom(mu = 1.41979, size = 1000);
+M-step: proportions = 0.2918078 0.3325281 0.3756641 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.6266419 
+
+Slot "mu":
+      mu 
+2.186605 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.419786 
+
+
+E-step: logLik = -149311.4 delta = 30.83992 
+Negbinom::update: p = 0.226178 mu = 2.21194
+Fitted: Negbinom(mu = 2.21194, size = 0.646521);
+Negbinom::update: p = 0.998601 mu = 1.40057
+Fitted: Negbinom(mu = 1.40057, size = 1000);
+M-step: proportions = 0.2926215 0.3324428 0.3749357 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+    size 
+0.646521 
+
+Slot "mu":
+      mu 
+2.211945 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.400573 
+
+
+E-step: logLik = -149294.6 delta = 16.84903 
+Negbinom::update: p = 0.228731 mu = 2.23056
+Fitted: Negbinom(mu = 2.23056, size = 0.661505);
+Negbinom::update: p = 0.998616 mu = 1.38622
+Fitted: Negbinom(mu = 1.38622, size = 1000);
+M-step: proportions = 0.2931653 0.3323797 0.374455 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+    size 
+0.661505 
+
+Slot "mu":
+     mu 
+2.23056 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.386221 
+
+
+E-step: logLik = -149285.3 delta = 9.315315 
+Negbinom::update: p = 0.230644 mu = 2.24433
+Fitted: Negbinom(mu = 2.24433, size = 0.672823);
+Negbinom::update: p = 0.998626 mu = 1.37548
+Fitted: Negbinom(mu = 1.37548, size = 1000);
+M-step: proportions = 0.2935393 0.3323346 0.3741261 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+    size 
+0.672823 
+
+Slot "mu":
+      mu 
+2.244326 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+     mu 
+1.37548 
+
+
+E-step: logLik = -149280.1 delta = 5.194419 
+Negbinom::update: p = 0.232082 mu = 2.25456
+Fitted: Negbinom(mu = 2.25456, size = 0.681379);
+Negbinom::update: p = 0.998634 mu = 1.36743
+Fitted: Negbinom(mu = 1.36743, size = 1000);
+M-step: proportions = 0.2938027 0.3323028 0.3738945 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.6813791 
+
+Slot "mu":
+     mu 
+2.25456 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.367427 
+
+
+E-step: logLik = -149277.1 delta = 2.91412 
+Negbinom::update: p = 0.233165 mu = 2.2622
+Fitted: Negbinom(mu = 2.2622, size = 0.687849);
+Negbinom::update: p = 0.99864 mu = 1.36138
+Fitted: Negbinom(mu = 1.36138, size = 1000);
+M-step: proportions = 0.2939915 0.3322803 0.3737282 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.6878486 
+
+Slot "mu":
+      mu 
+2.262198 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.361381 
+
+
+E-step: logLik = -149275.5 delta = 1.641995 
+Negbinom::update: p = 0.233982 mu = 2.26792
+Fitted: Negbinom(mu = 2.26792, size = 0.69274);
+Negbinom::update: p = 0.998645 mu = 1.35683
+Fitted: Negbinom(mu = 1.35683, size = 1000);
+M-step: proportions = 0.2941286 0.3322642 0.3736072 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+   size 
+0.69274 
+
+Slot "mu":
+      mu 
+2.267916 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.356834 
+
+
+E-step: logLik = -149274.6 delta = 0.9281501 
+Negbinom::update: p = 0.234598 mu = 2.27221
+Fitted: Negbinom(mu = 2.27221, size = 0.696438);
+Negbinom::update: p = 0.998648 mu = 1.35341
+Fitted: Negbinom(mu = 1.35341, size = 1000);
+M-step: proportions = 0.2942291 0.3322526 0.3735183 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.6964376 
+
+Slot "mu":
+      mu 
+2.272205 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.353412 
+
+
+E-step: logLik = -149274 delta = 0.5258777 
+Negbinom::update: p = 0.235063 mu = 2.27543
+Fitted: Negbinom(mu = 2.27543, size = 0.699232);
+Negbinom::update: p = 0.998651 mu = 1.35083
+Fitted: Negbinom(mu = 1.35083, size = 1000);
+M-step: proportions = 0.2943034 0.3322442 0.3734524 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.6992323 
+
+Slot "mu":
+      mu 
+2.275429 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.350834 
+
+
+E-step: logLik = -149273.7 delta = 0.298479 
+Negbinom::update: p = 0.235414 mu = 2.27785
+Fitted: Negbinom(mu = 2.27785, size = 0.701344);
+Negbinom::update: p = 0.998653 mu = 1.34889
+Fitted: Negbinom(mu = 1.34889, size = 1000);
+M-step: proportions = 0.2943585 0.332238 0.3734035 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+     size 
+0.7013443 
+
+Slot "mu":
+      mu 
+2.277854 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+     mu 
+1.34889 
+
+
+E-step: logLik = -149273.6 delta = 0.169637 
+Negbinom::update: p = 0.235679 mu = 2.27968
+Fitted: Negbinom(mu = 2.27968, size = 0.70294);
+Negbinom::update: p = 0.998654 mu = 1.34743
+Fitted: Negbinom(mu = 1.34743, size = 1000);
+M-step: proportions = 0.2943996 0.3322335 0.3733669 
+models:
+[[1]]
+An object of class "Zero"
+Slot "p":
+numeric(0)
+
+
+[[2]]
+An object of class "Negbinom"
+Slot "size":
+   size 
+0.70294 
+
+Slot "mu":
+      mu 
+2.279681 
+
+
+[[3]]
+An object of class "Negbinom"
+Slot "size":
+size 
+1000 
+
+Slot "mu":
+      mu 
+1.347425 
+
+
+E-step: logLik = -149273.5 delta = 0.09651034 
+chr1 
+seqlen 97735, nstates 2, maxit 500, eps 0.000100
+proba[0] = 0.5
+A[0][0] = 0.9
+A[0][1] = 0.1
+proba[1] = 0.5
+A[1][0] = 0.1
+A[1][1] = 0.9
+using zinba
+using zinba
+iteration = 1 delta logP = inf
+iteration = 2 delta logP = 1048.56
+iteration = 3 delta logP = 408.955
+iteration = 4 delta logP = 314.853
+iteration = 5 delta logP = 282.886
+iteration = 6 delta logP = 235.998
+iteration = 7 delta logP = 173.205
+iteration = 8 delta logP = 109.1
+iteration = 9 delta logP = 58.6018
+iteration = 10 delta logP = 27.2514
+iteration = 11 delta logP = 11.3075
+iteration = 12 delta logP = 4.32575
+iteration = 13 delta logP = 1.56786
+iteration = 14 delta logP = 0.549157
+iteration = 15 delta logP = 0.188358
+iteration = 16 delta logP = 0.0637999
+iteration = 17 delta logP = 0.0214507
+iteration = 18 delta logP = 0.00718098
+iteration = 19 delta logP = 0.00239791
+iteration = 20 delta logP = 0.000799558
+iteration = 21 delta logP = 0.000266375
+iteration = 22 delta logP = 8.87041e-05
