@@ -10,6 +10,8 @@ Step 1: Checking read alignments
 -----------------------------------------------
 Before we look at any modifications patterns in our ChIP-seq experiments, we shall get an impression on how our sequencing data looks like. 
 
+NOTE: In the step1 input directory, we also provide experiment files for the H3k4me1 and H3K4me2 histone marks. Those will not be fully processed using the scripts on this page, but you can look at them if you have any spare time left.
+
 **1.** First, change into the EpigenomicsTutorial-ISMB2017 directory and see which files are available as an input
 ::
   cd EpigenomicsTutorial-ISMB2017/session1
