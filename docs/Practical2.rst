@@ -29,7 +29,9 @@ This will generate an output file  ``session2/step1/output/B_ATAC_chr1_footprint
 
 We can use IGV to vizualise ATAC-seq signals and footprint predictions in particular loci. First, we can use a special HINT command to generate genomic profiles (bigWig files). 
 ::
-   rgt-hint XXX 
+   rgt-hint --print-signal --bc-signal --bigWig --organism=mm10 --reads-file=./session2/step1/input/B_ATAC_chr1.bam --regions-file=./session2/step1/input/B_ATACPeaks_chr1.bed --output-location=./session2/step1/output --output-prefix=B_ATAC_chr1
+rgt-hint --print-signal --bc-signal --bigWig --organism=mm10 --reads-file=./session2/step1/input/CD4_ATAC_chr1.bam --regions-file=./session2/step1/input/CD4_ATACPeaks_chr1.bed --output-location=./session2/step1/output --output-prefix=CD4_ATAC_chr1
+rgt-hint --print-signal --bc-signal --bigWig --organism=mm10 --reads-file=./session2/step1/input/LSK_ATAC_chr1.bam --regions-file=./session2/step1/input/LSK_ATACPeaks_chr1.bed --output-location=./session2/step1/output --output-prefix=LSK_ATAC_chr1
 
 This bigwig file contains number of ATAC-seq (or DNAse-seq) reads at each genomic position as estimated by HINT after signal normalization and cleveage bias correction. This is therefore more accurate than simply looking a coverage profiles of a bam file. Open all bw and bam files from ATAC-seq in your IGV. Remember to set the genome version to mm10 beforehand. You can also enrich the data by opening bam files of histone modifications as H327ac of the same cells. Go to the gene Ilr1 and zoom in on its promoter. We observe that this gene only has signals in LSK cells. Moreover, ATAC-seq reads only covers a small part of the H327ac, which is acessible for binding. (XXX - choose relevant gene and include a screenshot here). 
 
