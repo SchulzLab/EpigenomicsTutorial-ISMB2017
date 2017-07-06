@@ -75,11 +75,11 @@ histoneHMM again creates several output files (check the `manual <http://histone
 **2.** Filter and convert differential calls
 ::
   for i in step3/output/differential/*.gff ; do
-    ofile=$(dirname $i)/$(basename $i .gff).post_08.gff
+    ofile=$(dirname $i)/$(basename $i .gff).post_08.bed
     awk '{split($9,arr,";"); split(arr[1],arr2,"="); }{if(arr2[2]>=0.8) print $1 '\t' $4 '\t' $5}' ${ifile} > ${ofile}
   done
 
-The new *.gff files (with the .post_08 suffix) now contain the coordinates of the differential and modified/not modified regions for the analyzed experiment. To further get to know the results, check how many differential regions were discovered for each comparison after filtering. How many regions do you observe? Do the numbers differ between the individual histone marks?
+The new *.bed files (with the .post_08 suffix) now contain the coordinates of the differential and modified/not modified regions for the analyzed experiment. To further get to know the results, check how many differential regions were discovered for each comparison after filtering. How many regions do you observe? Do the numbers differ between the individual histone marks?
 As a last step, open again IGV and load the *.bam files as before. But now also add a few of the filtered *.bed files to add tracks which show e.g. the location of the differential peaks. Can you visually discern the differential peaks in the *.bam tracks? Do you agree with the results from histoneHMM?
 
 
