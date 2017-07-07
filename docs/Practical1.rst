@@ -32,9 +32,9 @@ Now we want to get a brief overview on the nature of the bam files.
 This will create for each of the available *.bam files a short read summary in the step1/output/stats directory. 
 Now check those files, what do you see? Also have a look at the header of the *.bam files, what can you observe?
 
-**3.** Have a look at the *.bam files using the IGV
+**3.** Have a look at the data files using the IGV
 
-Just open the IGV, then via ``File->Load from File`` open your *.bam file of choice and the corresponding *.wig file. Make sure that the correct Mouse genome (mm10) is selected in the upper left view of the browser, since this is the genome build which was used during read mapping. Examine the loaded tracks, what do you observe? Are there regions of high/low coverage?
+Just open the IGV, then via ``File->Load from File`` open your *.bam file of choice and the corresponding *.wig file (also in the step1/input/ dierctory). Make sure that the correct Mouse genome (mm10) is selected in the upper left view of the browser, since this is the genome build which was used during read mapping. Look at the region around the ``ZAP70 gene`` (e.g. by using the IGV search bar): Examine the loaded tracks, what do you observe? Are there regions of high/low coverage? (hint: you might want to scale the *.wig tracks to get a nicer view)
 
 Step 2: Calling modified regions
 -----------------------------------------------
@@ -100,7 +100,7 @@ histoneHMM again creates several output files (check the `manual <http://histone
 ::
   for i in step3/output/differential/*.gff ; do
     ofile=$(dirname $i)/$(basename $i .gff).post_08.bed
-    awk '{split($9,arr,";"); split(arr[1],arr2,"="); }{if(arr2[2]>=0.8) print $1 "\t" $4 "\t" $5}' ${i} > ${ofile}
+    awk '{split($9,arr,";"); split(arr[1],arr2,"="); }{if(arr2[2]>=0.8) print $1 "\t" $4-1 "\t" $5}' ${i} > ${ofile}
   done
 
 The new *.bed files (with the .post_08 suffix) now contain the coordinates of the differential and modified/not modified regions for the analyzed experiment. To further get to know the results, check how many differential regions were discovered for each comparison after filtering. How many regions do you observe? Do the numbers differ between the individual histone marks?
