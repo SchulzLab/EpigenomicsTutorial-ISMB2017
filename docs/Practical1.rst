@@ -38,11 +38,24 @@ Just open the IGV, then via ``File->Load from File`` open your *.bam file of cho
 
 Step 2: Calling modified regions
 -----------------------------------------------
-Now we know what we are dealing with and we are ready to begin the process of analyzing our histone marks using histoneHMM. The first step is to identify those regions in the genome which show histone modifications, i.e. to 'call regions'. histoneHMM works by first binning the genome into equally sized, non overlapping bins and then analyzing the number of reads falling into each of those bins. Necessary inputs for this step are 1) a chromosome lengths file, indicating length and name of chromosomes which are available and 2) the *.bam file from the ChIP-seq experiment of interest. Chromosome lengths files can easily be downloaded from 'UCSC goldenpath'. Alternatively, you can extract the information from the *.bam files directly, since it should always be encoded in the header (e.g. using ``samtools view -H test.bam``). Here, we will download the mm10 file from UCSCS, unzip it, and then run the command-line version of histoneHMM to call the modified regions. We also use the tool's -b parameter to set the size of the bins in which the genome should be devided to 2000bp.
+Now we know what we are dealing with and we are ready to begin the process of analyzing our histone marks using histoneHMM. The first step is to identify those regions in the genome which show histone modifications, i.e. to 'call regions'. histoneHMM works by first binning the genome into equally sized, non overlapping bins and then analyzing the number of reads falling into each of those bins. Necessary inputs for this step are 1) a chromosome lengths file, indicating length and name of chromosomes which are available and 2) the *.bam file from the ChIP-seq experiment of interest. Chromosome lengths files can easily be downloaded from 'UCSC goldenpath'. Alternatively, you can extract the information from the *.bam files directly, since it should always be encoded in the header. You can use either of the two following code sections to get your chromosome lengths file.
+
+**1.1.** Getting chromosome lengths from UCSC
+::
+  wget ftp://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
+  gunzip chromInfo.txt.gz
+  # we filter the chr1 only, since we only have chr1 reads
+  grep chr1 chromInfo.txt > chromInfo.chr1.txt
+
+**1.2.** Extracting chromosome lengths from *.bam files
+::
+  samtools view -H step2/input/B_H3k27ac.bam | grep SN:chr1 | cut -f 2,3 | sed s/[SL][NQ]://g > chromInfo.chr1.txt
+  
+With the chromosome lengths file in place, we now run the command-line version of histoneHMM to call the modified regions. We also use the tool's -b parameter to set the size of the bins in which the genome should be devided to 2000bp.
 
 NOTE: Before going on, make sure that the histoneHMM 'bin' directory is contained in you PATH variable (see installation instructions)
 
-**1.** Run histoneHMM's 'call_regions'
+**2.** Run histoneHMM's 'call_regions'
 ::
   mkdir -p step2/output/regions
   wget ftp://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
@@ -62,7 +75,7 @@ Step 3: Differential region calling
 The next and last step in this pipeline is formed by the differential region calling. Here we will compare experiments of the same histone modification in different cell-lines. 
 To perform the differential region calling with histoneHMM, we only need a file with binned count information as is created during the previous step for both experiments we want to compare. 
 
-NOTE: If you want you can redirect all output of histoneHMM using the '$>' operator as we did in the previous step.
+NOTE: If you want you can redirect all output of histoneHMM using the '&>' operator as we did in the previous step.
 
 **1.** Call differential regions
 ::
