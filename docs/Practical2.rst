@@ -3,7 +3,7 @@ Practical II - Footprint calling & Transcription factor prediction
 ==================================================================
 In the second practical, we will perform a footprint analysis with `HINT <http://www.regulatory-genomics.org/hint/>`_ to identify cell specific binding sites from open chromatin data (ATAC-seq). Next, we 
 will combine the footprints with the differential histone peaks detected by `histoneHMM <http://histonehmm.molgen.mpg.de>`_ (c.f. practical 1). 
-Thereby, we will find tissue specific TF binding sites, which are located in regions with cell spefici histone peaks. These regulatory regions are used in a 
+Thereby, we will find tissue specific TF binding sites, which are located in regions with cell specific histone peaks. These regulatory regions are used in a 
 `DYNAMITE <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_ analysis with the aim
 of inferring TFs might be related to gene expression differences between the tissues of interest. 
 
