@@ -151,23 +151,22 @@ To help you customise these files for later usage, we explain the essential para
 * decay: Flag indicating whether TEPIC should be using exponential decay to downweight far away regions while computing gene-TF scores
 * peakFeatures: Flag indicating whether TEPIC should compute features based on peaks, e.g. peak count, peak length, or signal intensity within a peak
 
-In the scope of the tutorial, you do not have to change any of those. A full description of all parameters is provided `here <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`.
+In the scope of the tutorial, you do not have to change any of those. A full description of all parameters is provided `here <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_.
 
-**4.** Run the individual pairwise comparisons for LSK vs B
+**4.** Run the individual pairwise comparisons for LSK vs B:
 ::
 	
 	bash runDYNAMITE.sh $HOME/EpigenomicsTutorial-ISMB2017/session2/step3/input/DYNAMITE-LSKvsB.cfg
 
-LSK vs CD4
+LSK vs CD4:
 ::
 	bash runDYNAMITE.sh $HOME/EpigenomicsTutorial-ISMB2017/session2/step3/input/DYNAMITE-LSKvsCD4.cfg
 
-and B vs CD4
+and B vs CD4:
 ::
 	bash runDYNAMITE.sh $HOME/EpigenomicsTutorial-ISMB2017/session2/step3/input/DYNAMITE-BvsCD4.cfg
 
 Note that you have to **replace** the prefix ``$HOME`` with the proper path to the tutorial repository, if you have not cloned it to your *home* directory. 
-The *cfg* files are configuration files that specify the path to all files needed in a *DYNAMITE* analysis, e.g. bed files for candidate binding regions.
 The results of the analysis will be stored separately for each run in ``EpigenomicsTutorial-ISMB2017/session2/step3/output``. There are three subfolders for
 each comparison:
 
