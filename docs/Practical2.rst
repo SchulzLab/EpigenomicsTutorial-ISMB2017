@@ -7,6 +7,8 @@ Thereby, we will find tissue specific TF binding sites, which are located in reg
 `DYNAMITE <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`_ analysis with the aim
 of inferring TFs might be related to gene expression differences between the tissues of interest. 
 
+**The final version of the practical will be available at 19.07.2017 at the latest.**
+
 Step1: Footprint calling
 -----------------------------------------------
 
