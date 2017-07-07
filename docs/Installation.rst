@@ -10,6 +10,7 @@ You need to bring your own **laptop** with the following software installed (see
 * `HINT <http://github.com/CostaLab/reg-gen>`_ 
 * `TEPIC <https://github.com/SchulzLab/TEPIC>`_ 
 * `IGV <http://software.broadinstitute.org/software/igv/>`_
+* `samtools <http://samtools.sourceforge.net>`_
 
 **Note:** that the individual softwares may have some other dependencies, e.g. bedtools which you should have installed.
 
@@ -21,7 +22,7 @@ The following software packages need to be installed for running the tutorial:
 
 R version 3.2 or higher.
 
-`histoneHMM <http://histonehmm.molgen.mpg.de>`_ 
+`histoneHMM <https://github.com/matthiasheinig/histoneHMM>`_ 
 -----------------------------------------------
 
 You might need to install the following dependencies before installing histoneHMM.
@@ -44,6 +45,15 @@ To install the latest version of the package, open an R terminal and type in the
   devtools::install_github("matthiasheinig/histoneHMM")
 
 Now the latest version of histoneHMM should be installed on your system.
+In the tutorial, we will use the command-line interface to histoneHMM. In order for this to work smoothly, it would be best if you add the path to the histoneHMM script files to your $PATH variable (otherwise you'd have to specify the full path each time you call histoneHMM). The path to the script files on your system should look something like this:
+::
+  /home/[username]/R/x86_64-redhat-linux-gnu-library/3.2/histoneHMM/bin/
+
+You can for example add this folder to the PATH variable by calling:
+::
+  export PATH=$PATH:/home/[username]/R/x86_64-redhat-linux-gnu-library/3.2/histoneHMM/bin/
+
+If you want to make the histoneHMM command-line available to you everytime you log on to your system, make sure that the directory is added to the $PATH variable everytime you log on or create a new terminal.
 
 
 `HINT <http://github.com/CostaLab/reg-gen>`_ 

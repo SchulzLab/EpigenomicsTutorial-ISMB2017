@@ -17,38 +17,38 @@ prefetch -v SRR1533847
 fastq-dump --split-3 ~/ncbi/public/sra/SRR1533847.sra
 
 # Map the reads to reference genome
-bowtie2 -x ~/Data/MM10/mm10 -U ./SRR1533847.fastq -S ./SRR1533847.sam
+bowtie2 -x ~/Data/MM10/mm10 -U ./SRR1533847.fastq -S ./B.sam
 
 # Convert sam file to bam file, sort the result and generate the index file
-samtools view -Sb ./SRR1533847.sam > ./SRR1533847.bam
-samtools sort ./SRR1533847.bam -o ./SRR1533847_sort.bam
-samtools index ./SRR1533847_sort.bam
+samtools view -Sb ./B.sam > ./B.bam
+samtools sort ./B.bam -o ./B_sort.bam
+samtools index ./B_sort.bam
 
 # Remove duplicates and bad map quality
-samtools rmdup -sS ./SRR1533847_sort.bam ./SRR1533847_remdup.bam
-samtools view -bq 30 ./SRR1533847_remdup.bam > ./SRR1533847.bam
-samtools index ./SRR1533847.bam
+samtools rmdup -sS ./B_sort.bam ./B_remdup.bam
+samtools view -bq 30 ./B_remdup.bam > ./B.bam
+samtools index ./B.bam
 
 # Remove the data unnecessary for downstream analysis
-rm SRR1533847.sam
-rm SRR1533847.fastq
-rm SRR1533847_remdup.bam
-rm SRR1533847_sort.bam
-rm SRR1533847_sort.bam.bai
+rm B.sam
+rm B.fastq
+rm B_remdup.bam
+rm B_sort.bam
+rm B_sort.bam.bai
 
 ############################################################################################
 # Next, we are going to call the peaks in bam file
 ############################################################################################
 
 mkdir Peaks
-macs2 callpeak -t SRR1533847.bam -n SRR1533847 --outdir Peaks -f BAM -g mm --nomodel --nolambda --keep-dup all --call-summits
+macs2 callpeak -t B.bam -n B --outdir Peaks -f BAM -g mm --nomodel --nolambda --keep-dup all --call-summits
 
 # Merge the overlap peaks and filter bad peak quality
-mergeBed -c 9 -o max -i  ./Peaks/SRR1533847_peaks.narrowPeak > ./Peaks/SRR1533847_peaks.bed
-awk '$4 >= 10' ./Peaks/SRR1533847_peaks.bed > ./SRR1533847_peaks.bed
+mergeBed -c 9 -o max -i  ./Peaks/B_peaks.narrowPeak > ./Peaks/B_peaks.bed
+awk '$4 >= 10' ./Peaks/B_peaks.bed > ./B_peaks.bed
 
 # Remove chrM, and unassembled "random" contigs
-sed -i '/chrM/d;/random/d;/chrUn/d' ./SRR1533847_peaks.bed
+sed -i '/chrM/d;/random/d;/chrUn/d' ./B_peaks.bed
 
 ##############################################################################################
 # Finally, a bam file containing alignment reads and a bed file containing peaks are generated.

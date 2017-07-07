@@ -49,8 +49,9 @@ The file ``session2/step1/motifs.txt``  contains a list of `JASPAR <http://jaspa
 Motif matching of genome wide are found in `here <https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/tree/master/session2/step1/result/>`_ 
 
 **4.** Finally, we use HINT to generate average ATAC-seq profiles around binding sites of particular TF. These analysis allow us to inspect the chromatin chromatin accessibility and the underlying sequence. Moreover, by comparing the cut profiles from two ATAC-seq libraries (i.s. LSK vs T CD4 cells
-), one can get insights on changes in binding in two cells. For this, execute the following commmands:
+). one can get insights on changes in binding in two cells. For this, execute the following commmands:
 ::
+    ./session2/step1/input/download_bam.sh
     mkdir session2/step1/output/LSK_B
     rgt-hint --diff-footprints --organism=mm10 --mpbs-file=session2/step1/result/LSK_B_ATAC_footprints_mpbs.bed --reads-file1=session2/step1/input/LSK_ATAC.bam --reads-file2=session2/step1/input/B_ATAC.bam --output-location=session2/step1/output/LSK_B --output-prefix=LSK_B
 
