@@ -53,14 +53,13 @@ Motif matching of genome wide are found in `here <https://github.com/SchulzLab/E
 **4.** Finally, we use HINT to generate average ATAC-seq profiles around binding sites of particular TF. These analysis allow us to inspect the chromatin chromatin accessibility and the underlying sequence. Moreover, by comparing the cut profiles from two ATAC-seq libraries (i.s. LSK vs T CD4 cells
 ). one can get insights on changes in binding in two cells. For this, execute the following commands:
 ::
-    ./session2/step1/input/download_bam.sh
     mkdir session2/step1/output/LSK_B
     rgt-hint --diff-footprints --organism=mm10 --mpbs-file=session2/step1/result/LSK_B_ATAC_footprints_mpbs.bed --reads-file1=session2/step1/input/LSK_ATAC.bam --reads-file2=session2/step1/input/B_ATAC.bam --output-location=session2/step1/output/LSK_B --output-prefix=LSK_B
 
     mkdir session2/step1/output/LSK_CD4
     rgt-hint --diff-footprints --organism=mm10 --mpbs-file=session2/step1/result/LSK_CD4_ATAC_footprints_mpbs.bed --reads-file1=session2/step1/input/LSK_ATAC.bam --reads-file2=session2/step1/input/CD4_ATAC.bam --output-location=session2/step1/output/LSK_CD4 --output-prefix=LSK_CD4
 
-The above commands will generate pdf (and eps) files with a ATAC-seq profile for each of the motifs founds in the provided mpbs bed files. Let's check the profiles in the comparirson LSK and CD4, you will see that ELK4 has higher number of ATAC-seq counts in CD4 cells, while SFP1 has more ATAC-seq in LSK cells. This fits with the results discussed in Lara-Astiaso that SFP1 are more relevant/active in LSK, while ELK4 in CD4 cells.
+The above commands will generate pdf (and eps) files with a ATAC-seq profile for each of the motifs founds in the provided mpbs bed files. Let's check the profiles in the comparirson LSK and CD4, you will see that ELK4 has higher number of ATAC-seq counts in CD4 cells, while SPI1 has more ATAC-seq in LSK cells. This fits with the results discussed in Lara-Astiaso that SPI1 are more relevant/active in LSK, while ELK4 in CD4 cells.
 
 Step2: Intersecting footprints with differential histone peaks
 -----------------------------------------------
