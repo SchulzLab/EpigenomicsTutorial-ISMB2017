@@ -29,9 +29,12 @@ You might need to install the following dependencies before installing histoneHM
 
 :strong:`Unix libraries:`
   * lib-gcc
+  * lib-gsl / lib-gsl-dev
+  * openssh
 
 :strong:`R libraries:`
   * Rcpp
+  * optparse
   * GenomicRanges (bioconductor.org)
   * Rsamtools (bioconductor.org)
   * mvtnorm
@@ -45,15 +48,19 @@ To install the latest version of the package, open an R terminal and type in the
   devtools::install_github("matthiasheinig/histoneHMM")
 
 Now the latest version of histoneHMM should be installed on your system.
-In the tutorial, we will use the command-line interface to histoneHMM. In order for this to work smoothly, it would be best if you add the path to the histoneHMM script files to your $PATH variable (otherwise you'd have to specify the full path each time you call histoneHMM). The path to the script files on your system should look something like this:
+In the tutorial, we will use the command-line interface to histoneHMM. In order for this to work smoothly, it would be best if you add the path to the histoneHMM script files to your $PATH variable (otherwise you'd have to specify the full path each time you call histoneHMM). You can find out the path you need to add by starting an R terminal and typing:
 ::
-  /home/[username]/R/x86_64-redhat-linux-gnu-library/3.2/histoneHMM/bin/
+  system.file("bin/", package="histoneHMM")
 
-You can for example add this folder to the PATH variable by calling:
+Which should yield something like this:
 ::
-  export PATH=$PATH:/home/[username]/R/x86_64-redhat-linux-gnu-library/3.2/histoneHMM/bin/
+  [1] "/home/[user-path]/R/x86_64-redhat-linux-gnu-library/3.2/histoneHMM/bin/"
 
-If you want to make the histoneHMM command-line available to you everytime you log on to your system, make sure that the directory is added to the $PATH variable everytime you log on or create a new terminal.
+Now you can add the directory indicated above to your PATH variable by calling:
+::
+  export PATH=$PATH:/home/[user-path]/R/x86_64-redhat-linux-gnu-library/3.2/histoneHMM/bin/
+
+If you want to make the histoneHMM command-line available to you everytime you log on to your system, make sure that the directory is added to the $PATH variable everytime you log on or create a new terminal (e.g. by modifying your ~/.bashrc).
 
 
 `HINT <http://github.com/CostaLab/reg-gen>`_ 
