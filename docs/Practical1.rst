@@ -2,8 +2,8 @@
 Practical I - Differential Histone peak calling
 ===============================================
 
-In the first part of the practical, we will have a look at histone modifications in different cell-lines as measured by ChIP-seq experiments in B-cell, CD4-cell and LSK (MPP) cell data from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_. Specifically, we look at the H3K4me3 and H3K27ac histone modifications and will analyze how they change between blood progenitor and more differentiated cell-lines.
-We will use `histoneHMM <https://github.com/matthiasheinig/histoneHMM>`_ for calling regions in the genome which show histone modifications as well as for identifying those regions, which show differential modification states between cell-lines.
+In the first part of the practical, we will have a look at histone modifications in different cell-types as measured by ChIP-seq experiments in B-cell, CD4-cell and LSK (MPP) cell data from `Lara-Astiaso et al 2014 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60103>`_. Specifically, we look at the H3K4me3 and H3K27ac histone modifications and will analyze how they change between blood progenitor and more differentiated cells.
+We will use `histoneHMM <https://github.com/matthiasheinig/histoneHMM>`_ for calling regions in the genome which show histone modifications as well as for identifying those regions, which show differential modification states between cell-types.
 The data used in this part of the practical can be found in your checked out tutorial directory under ``/EpigenomicsTutorial-ISMB2017/session1/step1/input``
 
 **The final version of the practical will be available at 19.07.2017 at the latest.**
@@ -19,7 +19,8 @@ NOTE: In the step1 input directory, we also provide experiment files for the H3k
   cd EpigenomicsTutorial-ISMB2017/session1
   ls -lh step1/input
   
-You can see the *.bam and *.bai files for the three cell-lines and the two examined histone modifications. Now we want to get a brief overview on the nature of the bam files.
+You can see the *.bam and *.bai files for the three cell-lines and the two examined histone modifications. You also see some *.wig files which we'll use later when looking at our data using IGV, ignore them for now. 
+Now we want to get a brief overview on the nature of the bam files.
 
 **2.** Create summary statistics using samtools
 ::
@@ -33,7 +34,7 @@ Now check those files, what do you see? Also have a look at the header of the *.
 
 **3.** Have a look at the *.bam files using the IGV
 
-Just open the IGV, then via ``File->Load from File`` open your *.bam file of choice. Make sure that the correct Mouse genome (mm10) is selected in the upper left view of the browser, since this is the genome build which was used during read mapping. Examine the bam-tracks, what do you observe? Are there regions of high/low coverage?
+Just open the IGV, then via ``File->Load from File`` open your *.bam file of choice and the corresponding *.wig file. Make sure that the correct Mouse genome (mm10) is selected in the upper left view of the browser, since this is the genome build which was used during read mapping. Examine the loaded tracks, what do you observe? Are there regions of high/low coverage?
 
 Step 2: Calling modified regions
 -----------------------------------------------
