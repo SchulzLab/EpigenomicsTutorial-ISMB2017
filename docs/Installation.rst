@@ -29,9 +29,12 @@ You might need to install the following dependencies before installing histoneHM
 
 :strong:`Unix libraries:`
   * lib-gcc
+  * lib-gsl / lib-gsl-dev
+  * openssh
 
 :strong:`R libraries:`
   * Rcpp
+  * optparse
   * GenomicRanges (bioconductor.org)
   * Rsamtools (bioconductor.org)
   * mvtnorm
