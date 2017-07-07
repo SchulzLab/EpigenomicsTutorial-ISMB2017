@@ -6,6 +6,8 @@ In the first part of the practical, we will have a look at histone modifications
 We will use `histoneHMM <https://github.com/matthiasheinig/histoneHMM>`_ for calling regions in the genome which show histone modifications as well as for identifying those regions, which show differential modification states between cell-lines.
 The data used in this part of the practical can be found in your checked out tutorial directory under ``/EpigenomicsTutorial-ISMB2017/session1/step1/input``
 
+**The final version of the practical will be available at 19.07.2017 at the latest.**
+
 Step 1: Checking read alignments
 -----------------------------------------------
 Before we look at any modifications patterns in our ChIP-seq experiments, we shall get an impression on how our sequencing data looks like. 

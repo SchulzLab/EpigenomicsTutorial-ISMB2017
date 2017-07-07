@@ -3,7 +3,7 @@
 
 This is the accompanying website of the ISMB tutorial about epigenomics data analysis held in *Prague on the 21st of July*. It contains the schedule as well as information, and will be extended to contain all the data and software necessary for the tutorial.
 
-**NOTE:** The final version of the tutorial material will be available at 19.07.2017 at the latest.
+**NOTE:** The final version of the tutorial material will be available at 19.07.2017 at the latest. 
 
 # Organizers / Presenters
 
