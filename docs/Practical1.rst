@@ -32,9 +32,9 @@ Now we want to get a brief overview on the nature of the bam files.
 This will create for each of the available *.bam files a short read summary in the step1/output/stats directory. 
 Now check those files, what do you see? Also have a look at the header of the *.bam files, what can you observe?
 
-**3.** Have a look at the *.bam files using the IGV
+**3.** Have a look at the data files using the IGV
 
-Just open the IGV, then via ``File->Load from File`` open your *.bam file of choice and the corresponding *.wig file. Make sure that the correct Mouse genome (mm10) is selected in the upper left view of the browser, since this is the genome build which was used during read mapping. Examine the loaded tracks, what do you observe? Are there regions of high/low coverage?
+Just open the IGV, then via ``File->Load from File`` open your *.bam file of choice and the corresponding *.wig file (also in the step1/input/ dierctory). Make sure that the correct Mouse genome (mm10) is selected in the upper left view of the browser, since this is the genome build which was used during read mapping. Look at the region around the ``ZAP70 gene`` (e.g. by using the IGV search bar): Examine the loaded tracks, what do you observe? Are there regions of high/low coverage? (hint: you might want to scale the *.wig tracks to get a nicer view)
 
 Step 2: Calling modified regions
 -----------------------------------------------
