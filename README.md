@@ -3,6 +3,8 @@
 
 This is the accompanying website of the ISMB tutorial about epigenomics data analysis held in *Prague on the 21st of July*. It contains the schedule as well as information, and will be extended to contain all the data and software necessary for the tutorial.
 
+**NOTE:** The final version of the tutorial material will be available at 19.07.2017 at the latest.
+
 # Organizers / Presenters
 
 * [Dr. Ivan G. Costa](http://costalab.org/team-2/ivan-g-costa-group-leader-2/), RWTH Aachen University, Germany
@@ -24,12 +26,12 @@ We have created a ReadTheDocs documentation for the participants to setup the so
 
 | Time  | Topic  |  Who |
 |---|---|---|
-|  2:30 - 2:45 | Introduction / gene regulation / transcription / chromatin  | Ivan G. Costa   |
+|  2:30 - 2:45 | [Introduction / gene regulation / transcription / chromatin](https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/blob/master/slides/Tutorial_Intro.pdf)  | Ivan G. Costa   |
 |  2:45 - 3:00 | Introduction ChIP-seq peak calling  | Matthias Heinig  |
-| 3:00 - 3:50  |  Practical peak calling |  Matthias Heinig |
+| 3:00 - 3:50  |  [Practical peak calling](http://epigenomicstutorial-ismb2017.readthedocs.io/en/latest/Practical1.html) |  Matthias Heinig |
 | 4:00 - 4:15  | Coffee break  |   |
 |  4:15 - 4:30 | Introduction footprints  | Ivan G. Costa   |
 |  4:30 - 4:45 |  Introduction regulatory networks | Marcel Schulz  |
-|  4:45 - 5:50 | Practical regulatory networks | Ivan G. Costa and Marcel Schulz |
+|  4:45 - 5:50 | [Practical regulatory networks](http://epigenomicstutorial-ismb2017.readthedocs.io/en/latest/Practical2.html) | Ivan G. Costa and Marcel Schulz |
 |  5:50 - 6:00 | Q & A session | all |
 
