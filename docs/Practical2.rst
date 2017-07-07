@@ -135,7 +135,7 @@ configuration files for the *DYNAMITE* analyses:
 #. DYNMAITE-LSKvsCD4.cfg
 #. DYNAMITE-BvsCD4.cfg
 
-The configuratio files are stored in the directory ``EpigenomicsTutorial-ISMB2017/session2/step3/input``. They list all parameters that are needed for a run of *DYNAMITE*. 
+The configuration files are stored in the directory ``EpigenomicsTutorial-ISMB2017/session2/step3/input``. They list all parameters that are needed for a run of *DYNAMITE*. 
 To help you customise these files for later usage, we explain the essential parameters here:
 
 * open_regions_Group1: One ore more files containing candidate transcription factor binding sites for samples belonging to group 1
@@ -151,7 +151,7 @@ To help you customise these files for later usage, we explain the essential para
 * decay: Flag indicating whether TEPIC should be using exponential decay to downweight far away regions while computing gene-TF scores
 * peakFeatures: Flag indicating whether TEPIC should compute features based on peaks, e.g. peak count, peak length, or signal intensity within a peak
 
-In the scope of the tutorial, you do not have to change any of the parameters. 
+In the scope of the tutorial, you do not have to change any of those. A full description of all parameters is provided `here <https://github.com/SchulzLab/TEPIC/blob/master/MachineLearningPipelines/DYNAMITE/README.md>`.
 
 **4.** Run the individual pairwise comparisons for LSK vs B
 ::
