@@ -110,7 +110,7 @@ To run the machine learning pipeline DYNAMITE, which is part of the TEPIC reposi
   * gplots
   * ggplot2
   * reshape2
-  * gridExta
+  * gridExtra
   
 The TEPIC examples in the tutorial also require the mouse reference genome that was downloaded during the HINT setup. 
 
@@ -126,9 +126,9 @@ Next, go to the folder ::
   
 and type ::
 
-  bash compileTRAP.sh
+  bash compile_TRAP_install_R_packages.sh
   
-to build the C++ component of TEPIC.
+to build the C++ component of TEPIC and install missing R packages.
 
 If all dependencies mentioned above are available, no further installation steps are required. 
 
