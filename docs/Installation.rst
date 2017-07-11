@@ -66,7 +66,7 @@ If you want to make the histoneHMM command-line available to you everytime you l
 `HINT <http://github.com/CostaLab/reg-gen>`_ 
 -----------------------------------------------
 
-To install HINT (RGT Suite), you are advised to use the Python package installer pip. First, download the pip installer `get-pip.py <http://bootstrap.pypa.io/get-pip.py>`_ and then install pip.
+To install HINT (RGT Suite), you are advised to use the Python package installer pip. First, make sure that the python version is 2.7 and download the pip installer `get-pip.py <http://bootstrap.pypa.io/get-pip.py>`_ and then install pip.
 
 ::
 
