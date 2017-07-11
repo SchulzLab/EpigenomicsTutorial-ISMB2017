@@ -69,6 +69,7 @@ If you want to make the histoneHMM command-line available to you everytime you l
 **Note**: for Mac user, we recommand to first install python and wget by brew
 
 ::
+
     brew install python
     brew install wget
 
