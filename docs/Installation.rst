@@ -10,7 +10,7 @@ You need to bring your own **laptop** with the following software installed (see
 * `HINT <http://github.com/CostaLab/reg-gen>`_ 
 * `TEPIC <https://github.com/SchulzLab/TEPIC>`_ 
 * `IGV <http://software.broadinstitute.org/software/igv/>`_
-* `samtools <http://samtools.sourceforge.net>`_
+* `samtools <http://www.htslib.org/download/>`_
 
 **Note:** that the individual softwares may have some other dependencies, e.g. bedtools which you should have installed.
 
