@@ -30,7 +30,7 @@ We have created a ReadTheDocs documentation for the participants to setup the so
 |  2:45 - 3:00 | Introduction ChIP-seq peak calling  | Matthias Heinig  |
 | 3:00 - 3:50  |  [Practical peak calling](http://epigenomicstutorial-ismb2017.readthedocs.io/en/latest/Practical1.html) |  Matthias Heinig |
 | 4:00 - 4:15  | Coffee break  |   |
-|  4:15 - 4:30 | [Introduction footprints] (https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/blob/master/slides/Tutorial_Footprint.pdf) | Ivan G. Costa   |
+|  4:15 - 4:30 | [Introduction footprints](https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/blob/master/slides/Tutorial_Footprint.pdf) | Ivan G. Costa   |
 |  4:30 - 4:45 |  Introduction regulatory networks | Marcel Schulz  |
 |  4:45 - 5:50 | [Practical regulatory networks](http://epigenomicstutorial-ismb2017.readthedocs.io/en/latest/Practical2.html) | Ivan G. Costa and Marcel Schulz |
 |  5:50 - 6:00 | Q & A session | all |
