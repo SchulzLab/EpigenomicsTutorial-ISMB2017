@@ -66,12 +66,7 @@ If you want to make the histoneHMM command-line available to you everytime you l
 `HINT <http://github.com/CostaLab/reg-gen>`_ 
 -----------------------------------------------
 
-**Note**: for Mac user, we recommand to first install python and wget by brew
 
-::
-
-    brew install python
-    brew install wget
 
 
 To install HINT (RGT Suite), you are advised to use the Python package installer pip. First, make sure that the python version is 2.7 and download the pip installer `get-pip.py <http://bootstrap.pypa.io/get-pip.py>`_ and then install pip.
@@ -101,6 +96,13 @@ You also need to download genome information for mouse genome mm10.
 
     cd ~/rgtdata
     python setupGenomicData.py --mm10
+
+**Note**: for Mac user, we recommend to first install python and wget by using
+
+::
+
+    brew install python
+    brew install wget
 
 
 `IGV <http://software.broadinstitute.org/software/igv/>`_
