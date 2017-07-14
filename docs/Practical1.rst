@@ -10,7 +10,7 @@ The data used in this part of the practical can be found in your checked out tut
 
 Step 1: Checking read alignments
 -----------------------------------------------
-Before we look at any modifications patterns in our ChIP-seq experiments, we shall get an impression on how our sequencing data looks like. 
+Before we look at any modifications patterns in our ChIP-seq experiments, we shall get an impression of how our sequencing data look.
 
 NOTE: In the step1 input directory, we also provide experiment files for the H3k4me1 and H3K4me2 histone marks. Those will not be fully processed using the scripts on this page, but you can look at them if you have any spare time left.
 
