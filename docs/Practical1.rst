@@ -45,7 +45,7 @@ Now we know what we are dealing with and we are ready to begin the process of an
   wget ftp://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
   gunzip chromInfo.txt.gz
   # we filter the chr1 only, since we only have chr1 reads
-  grep chr1 chromInfo.txt > chromInfo.chr1.txt
+  grep -w chr1 chromInfo.txt > chromInfo.chr1.txt
 
 **1.2.** Extracting chromosome lengths from *.bam files
 ::
@@ -61,7 +61,7 @@ NOTE: Before going on, make sure that the histoneHMM 'bin' directory is containe
   wget ftp://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
   gunzip chromInfo.txt.gz
   # we filter the chr1 only, since we only have chr1 reads
-  grep chr1 chromInfo.txt > chromInfo.chr1.txt
+  grep -w chr1 chromInfo.txt > chromInfo.chr1.txt
   for i in step2/input/*.bam ; do 
     prefix=step2/output/regions/$(basename $i .bam)
     histoneHMM_call_regions.R -b 2000 -c chromInfo.chr1.txt -o ${prefix} $i &> ${prefix}.debug
