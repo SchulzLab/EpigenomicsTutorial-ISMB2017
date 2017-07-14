@@ -10,7 +10,7 @@ The data used in this part of the practical can be found in your checked out tut
 
 Step 1: Checking read alignments
 -----------------------------------------------
-Before we look at any modifications patterns in our ChIP-seq experiments, we shall get an impression on how our sequencing data looks like. 
+Before we look at any modifications patterns in our ChIP-seq experiments, we shall get an impression of how our sequencing data look.
 
 NOTE: In the step1 input directory, we also provide experiment files for the H3k4me1 and H3K4me2 histone marks. Those will not be fully processed using the scripts on this page, but you can look at them if you have any spare time left.
 
@@ -45,7 +45,7 @@ Now we know what we are dealing with and we are ready to begin the process of an
   wget ftp://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
   gunzip chromInfo.txt.gz
   # we filter the chr1 only, since we only have chr1 reads
-  grep chr1 chromInfo.txt > chromInfo.chr1.txt
+  grep -w chr1 chromInfo.txt > chromInfo.chr1.txt
 
 **1.2.** Extracting chromosome lengths from *.bam files
 ::
@@ -61,7 +61,7 @@ NOTE: Before going on, make sure that the histoneHMM 'bin' directory is containe
   wget ftp://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
   gunzip chromInfo.txt.gz
   # we filter the chr1 only, since we only have chr1 reads
-  grep chr1 chromInfo.txt > chromInfo.chr1.txt
+  grep -w chr1 chromInfo.txt > chromInfo.chr1.txt
   for i in step2/input/*.bam ; do 
     prefix=step2/output/regions/$(basename $i .bam)
     histoneHMM_call_regions.R -b 2000 -c chromInfo.chr1.txt -o ${prefix} $i &> ${prefix}.debug
