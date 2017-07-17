@@ -15,6 +15,12 @@ You need to bring your own **laptop** with the following software installed (see
 **Note:** that the individual softwares may have some other dependencies, e.g. bedtools which you should have installed.
 
 ============
+Course Material/Data
+============
+
+You need to download (or clone) the git repository `EpigenomicsTutorial-ISMB2017 <https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/archive/master.zip>`_. This repository contains all data to be used in the course, as well as solutions and scripts for some of the problems. 
+
+============
 Installation
 ============
 
