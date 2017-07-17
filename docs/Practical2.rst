@@ -217,10 +217,10 @@ The figures *Misclassification_Lambda_<1..6>_Integrated_Data_For_Classification.
 using the script ``TEPIC/MachineLearningPipelines/DYNAMITE/Scripts/generateFeaturePlots.R``. This will provide you with density plots showing the distribution of the feature in 
 the two cell types, scatter plots linking feature value to gene expression changes, and a mini heatmap visualising the features regression coefficients. 
 
-To use this script, go to the folder ``TEPIC/MachineLearningPipelines/DYNAMITE/Scripts/`` and use the command
+To use this script, go to the folder output folder of step 3 ``EpigenomicsTutorial-ISMB2017/session2/step3/output`` and use the command
 ::
 
-	Rscript generateFeaturePlots.R $HOME/EpigenomicsTutorial-ISMB2017/session2/step3/output/LSK-vs-CD4/ HOXA3 LSK CD4
+	Rscript $HOME/TEPIC/MachineLearningPipelines/DYNAMITE/Scripts/generateFeaturePlots.R LSK-vs-CD4 HOXA3 LSK CD4
 
 
 This command will generate a plot comparing HOXA3 in LSK against CD4. Feel free to look at further features as you wish. The figure will be stored in the specified directory that contains the results of the *DYNAMITE* analysis.
