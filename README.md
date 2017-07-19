@@ -27,7 +27,7 @@ We have created a ReadTheDocs documentation for the participants to setup the so
 | Time  | Topic  |  Who |
 |---|---|---|
 |  2:30 - 2:45 | [Introduction / gene regulation / transcription / chromatin](https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/blob/master/slides/Tutorial_Intro.pdf)  | Ivan G. Costa   |
-|  2:45 - 3:00 | Introduction ChIP-seq peak calling  | Matthias Heinig  |
+|  2:45 - 3:00 | [Introduction ChIP-seq peak calling](https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/blob/master/slides/Tutorial_Differential_peak_calling.pdf)  | Matthias Heinig  |
 | 3:00 - 3:50  |  [Practical peak calling](http://epigenomicstutorial-ismb2017.readthedocs.io/en/latest/Practical1.html) |  Matthias Heinig |
 | 4:00 - 4:15  | Coffee break  |   |
 |  4:15 - 4:30 | [Introduction footprints](https://github.com/SchulzLab/EpigenomicsTutorial-ISMB2017/blob/master/slides/Tutorial_Footprint.pdf) | Ivan G. Costa   |
